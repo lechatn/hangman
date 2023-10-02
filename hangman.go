@@ -34,7 +34,7 @@ func randomWord(words []string) string {
 
 func displayWord(word string) string {
 	display := ""
-	for i := 0; i < len(word)-1; i++ {
+	for i := 0; i < len(word); i++ {
 		display = display + "_"
 	}
 	for i := 0; i < (len(word))/2-1; i++ {
