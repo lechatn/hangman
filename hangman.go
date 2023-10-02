@@ -1,9 +1,10 @@
 package main
 
 import (
-    "fmt"
-    "io/ioutil"
+	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -45,10 +46,41 @@ func displayWord(word string) string {
 	}
 	return display
 }
+func askUser(display string, word string,life int) (string,int) {
+	var input string
+	fmt.Println("Enter a letter: ")
+	fmt.Scanln(&input)
+	display,life = isPresent(strings.ToUpper(input),word,display,life)
+	return display,life
+}
+
+func isPresent(letter string, word string,display string,life int) (string,int){
+	isFind := false
+	for i, char := range word {
+		if string(char) == letter {
+			display = display[:i] + letter + display[i+1:]
+			isFind = true
+		}
+	}
+	if !isFind {
+		fmt.Println("Wrong letter")
+		life -= 1
+		return display,life
+	} else {
+		fmt.Println(display)
+		return display,life
+	}
+}
 
 func main() {
+	life := 10
 	words := loadWords()
 	word := randomWord(words)
 	display := displayWord(word)
 	fmt.Println(display)
+	for {
+		display,life = askUser(display,word,life)
+		fmt.Println(life)
+	}
+	
 }
