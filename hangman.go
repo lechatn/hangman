@@ -48,7 +48,7 @@ func displayWord(word string) string {
 }
 func askUser(display string, word string,life int) (string,int) {
 	var input string
-	fmt.Println("Enter a letter: ")
+	fmt.Println("Entrez une lettre: ")
 	fmt.Scanln(&input)
 	display,life = isPresent(strings.ToUpper(input),word,display,life)
 	return display,life
@@ -63,18 +63,17 @@ func isPresent(letter string, word string,display string,life int) (string,int){
 		}
 	}
 	if !isFind {
-		fmt.Println("Wrong letter")
+		fmt.Println("Mauvaise lettre")
 		life -= 1
 		return display,life
 	} else {
-		fmt.Println(display)
 		return display,life
 	}
 }
 
 func wordFind(word string,display string) bool {
 	if !contains(display,"_") {
-		fmt.Println("You win")
+		fmt.Println("Vous avez gagné ","\n")
 		return true
 	}
 	return false
@@ -95,13 +94,13 @@ func main() {
 	words := loadWords()
 	word := randomWord(words)
 	display := displayWord(word)
-	fmt.Println(display)
 	for wordFind(word,display) == false && life > 0{
+		fmt.Println(display)
 		display,life = askUser(display,word,life)
-		fmt.Println(life)
+		fmt.Println("Nombre de vies restantes",life,"\n")
 	} 
 	if life == 0 {
-		fmt.Println("You lose")
+		fmt.Println("Vous avez perdu, le bon mot était: ",word)
 	}
 	
 }
