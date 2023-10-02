@@ -72,15 +72,36 @@ func isPresent(letter string, word string,display string,life int) (string,int){
 	}
 }
 
+func wordFind(word string,display string) bool {
+	if !contains(display,"_") {
+		fmt.Println("You win")
+		return true
+	}
+	return false
+}
+
+func contains(inter string, x string) bool {
+    for i := 0; i < len(inter); i++ {
+        if x == string(inter[i]) {
+            return true
+        }
+    }
+    return false
+}
+
+
 func main() {
 	life := 10
 	words := loadWords()
 	word := randomWord(words)
 	display := displayWord(word)
 	fmt.Println(display)
-	for {
+	for wordFind(word,display) == false && life > 0{
 		display,life = askUser(display,word,life)
 		fmt.Println(life)
+	} 
+	if life == 0 {
+		fmt.Println("You lose")
 	}
 	
 }
