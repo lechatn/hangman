@@ -36,8 +36,11 @@ func displayWord(word string) string {
 	for i := 0; i < len(word)-1; i++ {
 		display = display + "_"
 	}
-	for i := 0; i < len(word)/2-1; i++ {
+	for i := 0; i < (len(word))/2-1; i++ {
 		randomNumber := rand.Intn(len(word)-1)
+		for string(display[randomNumber]) != "_" {
+			randomNumber = rand.Intn(len(word)-1)
+		}
 		display = display[:randomNumber] + string(word[randomNumber]) + display[randomNumber+1:]
 	}
 	return display
