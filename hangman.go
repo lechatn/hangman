@@ -92,9 +92,21 @@ func contains(inter string, x string) bool {
     return false
 }
 
+func displayHangman(life int,indexHangman int) {
+	file,err := ioutil.ReadFile("hangman.txt")
+	if err != nil {
+		panic(err)
+	}
+	lines := strings.Split(string(file),"\n")
+	for i:= indexHangman; i < indexHangman + 7 ; i++ {
+		fmt.Println(lines[i])
+	}
+}
+
 
 func main() {
 	life := 10
+	indexHangman := 0
 	words := loadWords()
 	word := randomWord(words)
 	display := displayWord(word)
@@ -102,9 +114,13 @@ func main() {
 	for wordFind(word,display) == false && life > 0{
 		fmt.Println(display)
 		display,life = askUser(display,word,life)
+		if life < 10 {
+			displayHangman(life,indexHangman)
+			indexHangman += 7
+		}
 	} 
 	if life == 0 {
-		fmt.Println("Vous avez perdu, le bon mot était: ",word)
+		fmt.Println("You lose, the good words was : ",word)
 	}
 	
 }
