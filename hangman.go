@@ -46,19 +46,20 @@ func displayWord(word string) string {
 	}
 	return display
 }
-func askUser(display string, word string, life int, indexHangman int) (string, int) {
+func askUser(display string, word string, life int, indexHangman int) (string, int , int) {
 	var input string
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
-	display, life = isPresent(strings.ToUpper(input), word, display, life, indexHangman)
-	return display, life
+	display, life , indexHangman = isPresent(strings.ToUpper(input), word, display, life, indexHangman)
+	return display, life , indexHangman
 }
 
-func isPresent(letter string, word string, display string, life int, indexHangman int) (string, int) {
+func isPresent(letter string, word string, display string, life int, indexHangman int) (string, int , int) {
 	isFind := false
 	for i, char := range word {
 		if i == len(word)-1 && string(char) == letter{
 			display = display[:i] + letter
+			isFind = true
 			continue
 		}
 		if string(char) == letter {
@@ -70,18 +71,21 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		life -= 1
 		fmt.Println("Not present in the word", life, "attemps remaining", "\n")
 		if life < 10 {
-			displayHangman(life, indexHangman)
-			indexHangman += 7
+			indexHangman +=7
+			indexHangman = displayHangman(life, indexHangman)
 		}
-		return display, life
+		return display, life , indexHangman
 	} else {
-		displayHangman(life, indexHangman)
-		return display, life
+		if life <10 {
+			indexHangman = displayHangman(life, indexHangman)	
+		}
+		return display, life , indexHangman
 	}
 }
 
 func wordFind(word string, display string) bool {
 	if !contains(display, "_") {
+		fmt.Println(display)
 		fmt.Println("Congrats ", "\n")
 		return true
 	}
@@ -97,7 +101,7 @@ func contains(inter string, x string) bool {
 	return false
 }
 
-func displayHangman(life int, indexHangman int) {
+func displayHangman(life int, indexHangman int) int{
 	file, err := ioutil.ReadFile("hangman.txt")
 	if err != nil {
 		panic(err)
@@ -106,18 +110,19 @@ func displayHangman(life int, indexHangman int) {
 	for i := indexHangman; i < indexHangman+7; i++ {
 		fmt.Println(lines[i])
 	}
+	return indexHangman
 }
 
 func main() {
 	life := 10
-	indexHangman := 0
+	indexHangman := -7
 	words := loadWords()
 	word := randomWord(words)
 	display := displayWord(word)
 	fmt.Println("Good Luck, you have 10 attemps.")
-	for wordFind(word, display) == false && life > 0 {
+	for !wordFind(word, display) && life > 0 {
 		fmt.Println(display)
-		display, life = askUser(display, word, life, indexHangman)
+		display, life , indexHangman = askUser(display, word, life, indexHangman)
 	}
 	if life == 0 {
 		fmt.Println("You lose, the good words was : ", word)
