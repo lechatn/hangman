@@ -57,7 +57,7 @@ func askUser(display string, word string,life int) (string,int) {
 func isPresent(letter string, word string,display string,life int) (string,int){
 	isFind := false
 	for i, char := range word {
-		if i == len(word)-1 {
+		if i == len(word)-1 && string(char) == letter{
 			display = display[:i] + letter
 			continue
 		}
