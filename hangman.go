@@ -51,8 +51,8 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
 	fmt.Print("\033[H\033[2J")
-	display, life, indexHangman, failed_letter = isPresent(strings.ToUpper(input), word, display, life, indexHangman,failed_letter)
-	return display, life, indexHangman,failed_letter
+	display, life, indexHangman, failed_letter = isPresent(strings.ToUpper(input), word, display, life, indexHangman, failed_letter)
+	return display, life, indexHangman, failed_letter
 }
 
 func isPresent(letter string, word string, display string, life int, indexHangman int, failed_letter string) (string, int, int, string) {
@@ -69,15 +69,24 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		}
 	}
 	if !isFind {
-		if !contains(failed_letter,letter) {
-			if failed_letter == "" {
-			failed_letter = failed_letter + letter
-		} else {
-			failed_letter = failed_letter + "," + letter 
+		if contains(failed_letter, letter) {
+			fmt.Println("Not present in the word", life, "attemps remaining")
+			fmt.Println("You already tried this letter")
+			fmt.Println("False letters you have already tried: ", failed_letter)
+			if life <= 10 {
+				indexHangman = displayHangman(life, indexHangman)
+			}
+			return display, life, indexHangman, failed_letter
 		}
+		if !contains(failed_letter, letter) {
+			if failed_letter == "" {
+				failed_letter = failed_letter + letter
+			} else {
+				failed_letter = failed_letter + "," + letter
+			}
 		}
 		life -= 1
-		fmt.Println("Not present in the word", life, "attemps remaining", "\n")
+		fmt.Println("Not present in the word", life, "attemps remaining")
 		fmt.Println("False letters you have already tried: ", failed_letter)
 		if life < 10 {
 			indexHangman += 7
@@ -85,7 +94,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		}
 		return display, life, indexHangman, failed_letter
 	} else {
-		fmt.Println("Present in the word", life, "attemps remaining", "\n")
+		fmt.Println("Present in the word", life, "attemps remaining")
 		fmt.Println("False letters you have already tried: ", failed_letter)
 		if life <= 10 {
 			indexHangman = displayHangman(life, indexHangman)
@@ -97,7 +106,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 func wordFind(word string, display string) bool {
 	if !contains(display, "_") {
 		fmt.Println(display)
-		fmt.Println("Congrats ", "\n")
+		fmt.Println("Congrats ")
 		return true
 	}
 	return false
