@@ -12,20 +12,21 @@ import (
 
 func menu() {
 	reader := bufio.NewReader(os.Stdin)
+	spaces := strings.Repeat(" ", 50)
 	for {
-		fmt.Println("                       ||                       ")
-		fmt.Println("                       ||                       ")
-		fmt.Println("----------------------Menu----------------------")
-		fmt.Println("|    [1] : Play to hangman in french           |")
-		fmt.Println("|    [2] : Play to hangman in english          |")
-		fmt.Println("|    [3] : Play to hangman in italian          |")
-		fmt.Println("|    [4] : Play to hangman with french citys   |")
-		fmt.Println("|    [5] : Play to hangman with countrys       |")
-		fmt.Println("|    [6] : Play to hangman with capitals       |")
-		fmt.Println("|    [7] : Play to hangman with sports         |")
-		fmt.Println("|    [8] : Leave the game                      |")
-		fmt.Println("------------------------------------------------")
-		fmt.Print("Choose an option: ")
+		fmt.Println(spaces,"                       ||                       ")
+		fmt.Println(spaces,"                       ||                       ")
+		fmt.Println(spaces,"----------------------Menu----------------------")
+		fmt.Println(spaces,"|    [1] : Play to hangman in french           |")
+		fmt.Println(spaces,"|    [2] : Play to hangman in english          |")
+		fmt.Println(spaces,"|    [3] : Play to hangman in italian          |")
+		fmt.Println(spaces,"|    [4] : Play to hangman with french citys   |")
+		fmt.Println(spaces,"|    [5] : Play to hangman with countrys       |")
+		fmt.Println(spaces,"|    [6] : Play to hangman with capitals       |")
+		fmt.Println(spaces,"|    [7] : Play to hangman with sports         |")
+		fmt.Println(spaces,"|    [8] : Leave the game                      |")
+		fmt.Println(spaces,"------------------------------------------------")
+		fmt.Print(spaces,"Choose an option: ")
 
 		option, _ := reader.ReadString('\n')
 		option = strings.TrimSpace(option)
@@ -35,16 +36,17 @@ func menu() {
 			life := 10
 			failed_letter := ""
 			indexHangman := 0
-			words := loadWords("word.txt")
+			words := loadWords("words.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "2":
 			fmt.Print("\033[H\033[2J")
@@ -54,13 +56,14 @@ func menu() {
 			words := loadWords("english.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "3":
 			fmt.Print("\033[H\033[2J")
@@ -70,13 +73,14 @@ func menu() {
 			words := loadWords("italiano.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "4":
 			fmt.Print("\033[H\033[2J")
@@ -86,13 +90,14 @@ func menu() {
 			words := loadWords("villes_france.txt")
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "5":
 			fmt.Print("\033[H\033[2J")
@@ -102,13 +107,14 @@ func menu() {
 			words := loadWords("pays.txt")
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "6":
 			fmt.Print("\033[H\033[2J")
@@ -118,13 +124,14 @@ func menu() {
 			words := loadWords("capital.txt")
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "7":
 			fmt.Print("\033[H\033[2J")
@@ -134,13 +141,14 @@ func menu() {
 			words := loadWords("sports.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			fmt.Println("Good Luck, you have 10 attemps.")
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
-				fmt.Println(display)
+				fmt.Println(spaces,display)
 				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 			}
 			if life == 0 {
-				fmt.Println("You lose, the good words was : ", word)
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
 		case "8":
 			fmt.Print("\033[H\033[2J")
@@ -151,7 +159,7 @@ func menu() {
 			os.Exit(0)
 		default:
 			fmt.Print("\033[H\033[2J")
-			fmt.Println("Invalid option")
+			fmt.Println(spaces,"Invalid option")
 		}
 	}
 }
@@ -201,12 +209,13 @@ func displayWord(word string) string {
 }
 func askUser(display string, word string, life int, indexHangman int, failed_letter string) (string, int, int, string) {
 	var input string
-	fmt.Print("Choose : ")
+	spaces := strings.Repeat(" ", 50)
+	fmt.Print(spaces," Choose : ")
 	fmt.Scanln(&input)
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
 	for len(input)>1 || !contains(alphabet,input) {
 		fmt.Println("Invalid character")
-		fmt.Print("Choose : ")
+		fmt.Print(spaces,"Choose : ")
 		fmt.Scanln(&input)
 	}
 	fmt.Print("\033[H\033[2J")
@@ -215,6 +224,7 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 }
 
 func isPresent(letter string, word string, display string, life int, indexHangman int, failed_letter string) (string, int, int, string) {
+	spaces := strings.Repeat(" ", 50)
 	isFind := false
 	for i, char := range word {
 		if i == len(word)-1 && string(char) == letter {
@@ -229,9 +239,9 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 	if !isFind {
 		if contains(failed_letter, letter) {
-			fmt.Println("Not present in the word", life, "attemps remaining")
-			fmt.Println("You already tried this letter")
-			fmt.Println("False letters you have already tried: ", failed_letter)
+			fmt.Println(spaces,"Not present in the word", life, "attemps remaining")
+			fmt.Println(spaces,"You already tried this letter")
+			fmt.Println(spaces,"False letters you have already tried: ", failed_letter)
 			if life <= 10 {
 				indexHangman = displayHangman(life, indexHangman)
 			}
@@ -245,16 +255,16 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			}
 		}
 		life -= 1
-		fmt.Println("Not present in the word", life, "attemps remaining")
-		fmt.Println("False letters you have already tried: ", failed_letter)
+		fmt.Println(spaces,"Not present in the word", life, "attemps remaining")
+		fmt.Println(spaces,"False letters you have already tried: ", failed_letter)
 		if life < 10 {
 			indexHangman += 7
 			indexHangman = displayHangman(life, indexHangman)
 		}
 		return display, life, indexHangman, failed_letter
 	} else {
-		fmt.Println("Present in the word", life, "attemps remaining")
-		fmt.Println("Right letters you have already tried: ", failed_letter)
+		fmt.Println(spaces,"Present in the word", life, "attemps remaining")
+		fmt.Println(spaces,"Right letters you have already tried: ", failed_letter)
 		if life <= 10 {
 			indexHangman = displayHangman(life, indexHangman)
 		}
@@ -263,11 +273,12 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 }
 
 func wordFind(word string, display string) bool {
+	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
-		fmt.Println(display)
+		fmt.Println(spaces,display)
 		fmt.Print("\033[H\033[2J")
 		content, _ := ioutil.ReadFile("congrats.txt")
-		fmt.Println(string(content))
+		fmt.Println(spaces,string(content))
 		time.Sleep(5 * time.Second)
 		fmt.Print("\033[H\033[2J")
 		return true
@@ -285,6 +296,7 @@ func contains(inter string, x string) bool {
 }
 
 func displayHangman(life int, indexHangman int) int {
+	spaces := strings.Repeat(" ", 50)
 	file, err := ioutil.ReadFile("hangman.txt")
 	if err != nil {
 		panic(err)
@@ -292,11 +304,11 @@ func displayHangman(life int, indexHangman int) int {
 	lines := strings.Split(string(file), "\n")
 	if life == 10 {
 		for i := 0; i < 7; i++ {
-			fmt.Println(lines[i])
+			fmt.Println(spaces,lines[i])
 		}
 	} else {
 		for i := indexHangman; i < indexHangman+7; i++ {
-			fmt.Println(lines[i])
+			fmt.Println(spaces,lines[i])
 		}
 	}
 	return indexHangman
