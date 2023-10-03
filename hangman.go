@@ -13,14 +13,15 @@ import (
 func menu() {
 	reader := bufio.NewReader(os.Stdin)
 	for {
-		fmt.Println("                    ||                   ")
-		fmt.Println("                    ||                   ")
-		fmt.Println("-------------------Menu------------------")
-		fmt.Println("|    [1] : Play to hangman in french    |")
-		fmt.Println("|    [2] : Play to hangman in english   |")
-		fmt.Println("|    [3] : Play to hangman in italian   |")
-		fmt.Println("|    [4] : Leave the game               |")
-		fmt.Println("-----------------------------------------")
+		fmt.Println("                       ||                       ")
+		fmt.Println("                       ||                       ")
+		fmt.Println("----------------------Menu----------------------")
+		fmt.Println("|    [1] : Play to hangman in french           |")
+		fmt.Println("|    [2] : Play to hangman in english          |")
+		fmt.Println("|    [3] : Play to hangman in italian          |")
+		fmt.Println("|    [4] : Play to hangman with french citys   |")
+		fmt.Println("|    [5] : Leave the game                      |")
+		fmt.Println("------------------------------------------------")
 		fmt.Print("Choose an option: ")
 
 		option, _ := reader.ReadString('\n')
@@ -75,6 +76,22 @@ func menu() {
 				fmt.Println("You lose, the good words was : ", word)
 			}
 		case "4":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("villes_france.txt")
+			word := randomWord(words)
+			display := displayWord(word[:len(word)-1])
+			fmt.Println("Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Println("You lose, the good words was : ", word)
+			}
+		case "5":
 			fmt.Print("\033[H\033[2J")
 			content, _ := ioutil.ReadFile("goodbye.txt")
 			fmt.Println(string(content))
