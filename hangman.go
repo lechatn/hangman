@@ -1,75 +1,92 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
+	"os"
 	"strings"
 	"time"
-	"os"
-	"bufio"
 )
-func menu(){
-	reader := bufio.NewReader(os.Stdin) 
+
+func menu() {
+	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println("                    ||                   ")
 		fmt.Println("                    ||                   ")
-        fmt.Println("-------------------Menu------------------")
-        fmt.Println("|    [1] : Play to hangman in french    |")
-        fmt.Println("|    [2] : Play to hangman in english   |")
-        fmt.Println("|    [3] : Leave the game               |")
+		fmt.Println("-------------------Menu------------------")
+		fmt.Println("|    [1] : Play to hangman in french    |")
+		fmt.Println("|    [2] : Play to hangman in english   |")
+		fmt.Println("|    [3] : Play to hangman in italian   |")
+		fmt.Println("|    [4] : Leave the game               |")
 		fmt.Println("-----------------------------------------")
-        fmt.Print("Choose an option: ")
+		fmt.Print("Choose an option: ")
 
 		option, _ := reader.ReadString('\n')
-        option = strings.TrimSpace(option)
+		option = strings.TrimSpace(option)
 		switch option {
-			case "1": 
-				fmt.Print("\033[H\033[2J")
-				life := 10
-				failed_letter := ""
-				indexHangman := 0
-				words := loadWords("words.txt")
-				word := randomWord(words)
-				display := displayWord(word)
-				fmt.Println("Good Luck, you have 10 attemps.")
-				for !wordFind(word, display) && life > 0 {
-					fmt.Println(display)
-					display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
-				}
-				if life == 0 {
-					fmt.Println("You lose, the good words was : ", word)
-				}
-			case "2": 
-				fmt.Print("\033[H\033[2J")
-				life := 10
-				failed_letter := ""
-				indexHangman := 0
-				words := loadWords("english.txt")
-				word := randomWord(words)
-				display := displayWord(word)
-				fmt.Println("Good Luck, you have 10 attemps.")
-				for !wordFind(word, display) && life > 0 {
-					fmt.Println(display)
-					display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
-				}
-				if life == 0 {
-					fmt.Println("You lose, the good words was : ", word)
-				}
-			case "3":
-				fmt.Print("\033[H\033[2J")
-				content,_:= ioutil.ReadFile("goodbye.txt")
-				fmt.Println(string(content))
-				time.Sleep(3 * time.Second)
-				fmt.Print("\033[H\033[2J")
-				os.Exit(0)
-			default:
-				fmt.Print("\033[H\033[2J")
-				fmt.Println("Invalid option")
+		case "1":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("words.txt")
+			word := randomWord(words)
+			display := displayWord(word)
+			fmt.Println("Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Println("You lose, the good words was : ", word)
+			}
+		case "2":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("english.txt")
+			word := randomWord(words)
+			display := displayWord(word)
+			fmt.Println("Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Println("You lose, the good words was : ", word)
+			}
+		case "3":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("italiano.txt")
+			word := randomWord(words)
+			display := displayWord(word)
+			fmt.Println("Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Println("You lose, the good words was : ", word)
+			}
+		case "4":
+			fmt.Print("\033[H\033[2J")
+			content, _ := ioutil.ReadFile("goodbye.txt")
+			fmt.Println(string(content))
+			time.Sleep(3 * time.Second)
+			fmt.Print("\033[H\033[2J")
+			os.Exit(0)
+		default:
+			fmt.Print("\033[H\033[2J")
+			fmt.Println("Invalid option")
 		}
-	}	
+	}
 }
-
 
 func loadWords(fichier string) []string {
 	arrayOfWords := []string{}
@@ -170,7 +187,7 @@ func wordFind(word string, display string) bool {
 	if !contains(display, "_") {
 		fmt.Println(display)
 		fmt.Print("\033[H\033[2J")
-		content,_:= ioutil.ReadFile("congrats.txt")
+		content, _ := ioutil.ReadFile("congrats.txt")
 		fmt.Println(string(content))
 		time.Sleep(5 * time.Second)
 		fmt.Print("\033[H\033[2J")
