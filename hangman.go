@@ -46,16 +46,16 @@ func displayWord(word string) string {
 	}
 	return display
 }
-func askUser(display string, word string, life int, indexHangman int) (string, int, int) {
+func askUser(display string, word string, life int, indexHangman int, failed_letter string) (string, int, int, string) {
 	var input string
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
 	fmt.Print("\033[H\033[2J")
-	display, life, indexHangman = isPresent(strings.ToUpper(input), word, display, life, indexHangman)
-	return display, life, indexHangman
+	display, life, indexHangman, failed_letter = isPresent(strings.ToUpper(input), word, display, life, indexHangman,failed_letter)
+	return display, life, indexHangman,failed_letter
 }
 
-func isPresent(letter string, word string, display string, life int, indexHangman int) (string, int, int) {
+func isPresent(letter string, word string, display string, life int, indexHangman int, failed_letter string) (string, int, int, string) {
 	isFind := false
 	for i, char := range word {
 		if i == len(word)-1 && string(char) == letter {
@@ -69,19 +69,28 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		}
 	}
 	if !isFind {
+		if !contains(failed_letter,letter) {
+			if failed_letter == "" {
+			failed_letter = failed_letter + letter
+		} else {
+			failed_letter = failed_letter + "," + letter 
+		}
+		}
 		life -= 1
 		fmt.Println("Not present in the word", life, "attemps remaining", "\n")
+		fmt.Println("False letters you have already tried: ", failed_letter)
 		if life < 10 {
 			indexHangman += 7
 			indexHangman = displayHangman(life, indexHangman)
 		}
-		return display, life, indexHangman
+		return display, life, indexHangman, failed_letter
 	} else {
 		fmt.Println("Present in the word", life, "attemps remaining", "\n")
+		fmt.Println("False letters you have already tried: ", failed_letter)
 		if life <= 10 {
 			indexHangman = displayHangman(life, indexHangman)
 		}
-		return display, life, indexHangman
+		return display, life, indexHangman, failed_letter
 	}
 }
 
@@ -123,6 +132,7 @@ func displayHangman(life int, indexHangman int) int {
 
 func main() {
 	life := 10
+	failed_letter := ""
 	indexHangman := 0
 	words := loadWords()
 	word := randomWord(words)
@@ -130,7 +140,7 @@ func main() {
 	fmt.Println("Good Luck, you have 10 attemps.")
 	for !wordFind(word, display) && life > 0 {
 		fmt.Println(display)
-		display, life, indexHangman = askUser(display, word, life, indexHangman)
+		display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
 	}
 	if life == 0 {
 		fmt.Println("You lose, the good words was : ", word)
