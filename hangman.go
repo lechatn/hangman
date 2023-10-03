@@ -22,7 +22,8 @@ func menu() {
 		fmt.Println("|    [4] : Play to hangman with french citys   |")
 		fmt.Println("|    [5] : Play to hangman with countrys       |")
 		fmt.Println("|    [6] : Play to hangman with capitals       |")
-		fmt.Println("|    [7] : Leave the game                      |")
+		fmt.Println("|    [7] : Play to hangman with sports         |")
+		fmt.Println("|    [8] : Leave the game                      |")
 		fmt.Println("------------------------------------------------")
 		fmt.Print("Choose an option: ")
 
@@ -126,6 +127,22 @@ func menu() {
 				fmt.Println("You lose, the good words was : ", word)
 			}
 		case "7":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("sports.txt")
+			word := randomWord(words)
+			display := displayWord(word)
+			fmt.Println("Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Println("You lose, the good words was : ", word)
+			}
+		case "8":
 			fmt.Print("\033[H\033[2J")
 			content, _ := ioutil.ReadFile("goodbye.txt")
 			fmt.Println(string(content))
