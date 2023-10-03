@@ -20,11 +20,12 @@ func menu() {
 		fmt.Println(spaces,"|    [1] : Play to hangman in "+"\033[36mfr\033[0m"+"en"+"\033[31mch\033[0m"+"           |")
 		fmt.Println(spaces,"|    [2] : Play to hangman in "+"\033[31men\033[0m"+"gli"+"\033[34msh\033[0m"+"          |")
 		fmt.Println(spaces,"|    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"          |")
-		fmt.Println(spaces,"|    [4] : Play to hangman with "+"\033[36mfren\033[0m"+"ch ci"+"\033[31mtys\033[0m"+"   |")
-		fmt.Println(spaces,"|    [5] : Play to hangman with countrys       |")
-		fmt.Println(spaces,"|    [6] : Play to hangman with capitals       |")
-		fmt.Println(spaces,"|    [7] : Play to hangman with sports         |")
-		fmt.Println(spaces,"|    [8] : Leave the game                      |")
+		fmt.Println(spaces,"|    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"      |")
+		fmt.Println(spaces,"|    [5] : Play to hangman with french citys   |")
+		fmt.Println(spaces,"|    [6] : Play to hangman with countrys       |")
+		fmt.Println(spaces,"|    [7] : Play to hangman with capitals       |")
+		fmt.Println(spaces,"|    [8] : Play to hangman with sports         |")
+		fmt.Println(spaces,"|    [9] : Leave the game                      |")
 		fmt.Println(spaces,"------------------------------------------------")
 		fmt.Print(spaces,"Choose an option: ")
 
@@ -87,9 +88,9 @@ func menu() {
 			life := 10
 			failed_letter := ""
 			indexHangman := 0
-			words := loadWords("villes_france.txt")
+			words := loadWords("espanol.txt")
 			word := randomWord(words)
-			display := displayWord(word[:len(word)-1])
+			display := displayWord(word)
 			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces,display)
@@ -104,7 +105,7 @@ func menu() {
 			life := 10
 			failed_letter := ""
 			indexHangman := 0
-			words := loadWords("pays.txt")
+			words := loadWords("villes_france.txt")
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
 			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
@@ -121,7 +122,7 @@ func menu() {
 			life := 10
 			failed_letter := ""
 			indexHangman := 0
-			words := loadWords("capital.txt")
+			words := loadWords("pays.txt")
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
 			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
@@ -138,6 +139,23 @@ func menu() {
 			life := 10
 			failed_letter := ""
 			indexHangman := 0
+			words := loadWords("capital.txt")
+			word := randomWord(words)
+			display := displayWord(word[:len(word)-1])
+			fmt.Println(spaces,"Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(spaces,display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces,"You lose, the good words was : ", word)
+			}
+		case "8":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
 			words := loadWords("sports.txt")
 			word := randomWord(words)
 			display := displayWord(word)
@@ -150,7 +168,7 @@ func menu() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Println(spaces,"You lose, the good words was : ", word)
 			}
-		case "8":
+		case "9":
 			fmt.Print("\033[H\033[2J")
 			content, _ := ioutil.ReadFile("goodbye.txt")
 			fmt.Println(string(content))
