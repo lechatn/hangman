@@ -164,6 +164,11 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	var input string
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
+	for len(input)>1 {
+		fmt.Println("Invalid character")
+		fmt.Print("Choose : ")
+		fmt.Scanln(&input)
+	}
 	fmt.Print("\033[H\033[2J")
 	display, life, indexHangman, failed_letter = isPresent(strings.ToUpper(input), word, display, life, indexHangman, failed_letter)
 	return display, life, indexHangman, failed_letter
