@@ -186,7 +186,8 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	var input string
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
-	for len(input)>1 {
+	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
+	for len(input)>1 || !contains(alphabet,input) {
 		fmt.Println("Invalid character")
 		fmt.Print("Choose : ")
 		fmt.Scanln(&input)
