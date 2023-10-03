@@ -17,10 +17,10 @@ func menu() {
 		fmt.Println(spaces,"                       ||                       ")
 		fmt.Println(spaces,"                       ||                       ")
 		fmt.Println(spaces,"----------------------Menu----------------------")
-		fmt.Println(spaces,"|    [1] : Play to hangman in french           |")
-		fmt.Println(spaces,"|    [2] : Play to hangman in english          |")
-		fmt.Println(spaces,"|    [3] : Play to hangman in italian          |")
-		fmt.Println(spaces,"|    [4] : Play to hangman with french citys   |")
+		fmt.Println(spaces,"|    [1] : Play to hangman in "+"\033[36mfr\033[0m"+"en"+"\033[31mch\033[0m"+"           |")
+		fmt.Println(spaces,"|    [2] : Play to hangman in "+"\033[31men\033[0m"+"gli"+"\033[34msh\033[0m"+"          |")
+		fmt.Println(spaces,"|    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"          |")
+		fmt.Println(spaces,"|    [4] : Play to hangman with "+"\033[36mfren\033[0m"+"ch ci"+"\033[31mtys\033[0m"+"   |")
 		fmt.Println(spaces,"|    [5] : Play to hangman with countrys       |")
 		fmt.Println(spaces,"|    [6] : Play to hangman with capitals       |")
 		fmt.Println(spaces,"|    [7] : Play to hangman with sports         |")
@@ -236,7 +236,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			display = display[:i] + letter + display[i+1:]
 			isFind = true
 		}
-	}
+	}	
 	if !isFind {
 		if contains(failed_letter, letter) {
 			fmt.Println(spaces,"Not present in the word", life, "attemps remaining")
