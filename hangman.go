@@ -22,11 +22,12 @@ func menu() {
 		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"          \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"          \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman in "+"\033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"+"       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman with french citys   \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [7] : Play to hangman with countrys       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [8] : Play to hangman with capitals       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [9] : Play to hangman with sports         \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [10] : Leave the game                     \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman in "+"\033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"+"           \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [7] : Play to hangman with french citys   \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [8] : Play to hangman with countrys       \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [9] : Play to hangman with capitals       \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [10] : Play to hangman with sports        \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [11] : Leave the game                     \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
 		fmt.Print(spaces, " Choose an option: ")
 
@@ -112,8 +113,8 @@ func menu() {
 			indexHangman := 0
 			words := loadWords("portugais.txt")
 			word := randomWord(words)
-			display := displayWord(word[:len(word)-1])
-			fmt.Println(spaces, "Game mode : French citys")
+			display := displayWord(word)
+			fmt.Println(spaces, "Game mode : \033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m")
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
@@ -124,6 +125,24 @@ func menu() {
 				fmt.Println(spaces, "You lose, the good words was : ", word)
 			}
 		case "6":
+			fmt.Print("\033[H\033[2J")
+			life := 10
+			failed_letter := ""
+			indexHangman := 0
+			words := loadWords("allemand.txt")
+			word := randomWord(words)
+			display := displayWord(word)
+			fmt.Println(spaces, "Game mode : \033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m")
+			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+			for !wordFind(word, display) && life > 0 {
+				fmt.Println(spaces, display)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter)
+			}
+			if life == 0 {
+				fmt.Print("\033[H\033[2J")
+				fmt.Println(spaces, "You lose, the good words was : ", word)
+			}
+		case "7":
 			fmt.Print("\033[H\033[2J")
 			life := 10
 			failed_letter := ""
@@ -141,7 +160,7 @@ func menu() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Println(spaces, "You lose, the good words was : ", word)
 			}
-		case "7":
+		case "8":
 			fmt.Print("\033[H\033[2J")
 			life := 10
 			failed_letter := ""
@@ -159,7 +178,7 @@ func menu() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Println(spaces, "You lose, the good words was : ", word)
 			}
-		case "8":
+		case "9":
 			fmt.Print("\033[H\033[2J")
 			life := 10
 			failed_letter := ""
@@ -177,7 +196,7 @@ func menu() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Println(spaces, "You lose, the good words was : ", word)
 			}
-		case "9":
+		case "10":
 			fmt.Print("\033[H\033[2J")
 			life := 10
 			failed_letter := ""
@@ -195,7 +214,7 @@ func menu() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Println(spaces, "You lose, the good words was : ", word)
 			}
-		case "10":
+		case "11":
 			fmt.Print("\033[H\033[2J")
 			content, _ := ioutil.ReadFile("goodbye.txt")
 			fmt.Println(string(content))
