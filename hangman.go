@@ -50,6 +50,7 @@ func askUser(display string, word string, life int, indexHangman int) (string, i
 	var input string
 	fmt.Print("Choose : ")
 	fmt.Scanln(&input)
+	fmt.Print("\033[H\033[2J")
 	display, life , indexHangman = isPresent(strings.ToUpper(input), word, display, life, indexHangman)
 	return display, life , indexHangman
 }
