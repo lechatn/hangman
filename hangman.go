@@ -1,6 +1,6 @@
 package main
 
-import (
+import (		//On importe les packages nécessaires au bon fonctionnement du programme
 	"bufio"
 	"fmt"
 	"io/ioutil"
@@ -10,10 +10,10 @@ import (
 	"time"
 )
 
-func menu() {
-	reader := bufio.NewReader(os.Stdin)
+func menu() {		// Fonction d'affichage du menu de commandes
+	reader := bufio.NewReader(os.Stdin)		
 	spaces := strings.Repeat(" ", 50)
-	for {
+	for {		//Définition du menu principal
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
