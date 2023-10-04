@@ -42,12 +42,12 @@ func menu() {
 			words := loadWords("base_de_donnée/words.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[36mfr\033[0m"+"en"+"\033[31mch\033[0m words"
+			game_mode := "Game mode : \033[36mfr\033[0m" + "en" + "\033[31mch\033[0m words"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -61,12 +61,12 @@ func menu() {
 			words := loadWords("base_de_donnée/english.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[31men\033[0m"+"gli"+"\033[34msh\033[0m words"
+			game_mode := "Game mode : \033[31men\033[0m" + "gli" + "\033[34msh\033[0m words"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -80,12 +80,12 @@ func menu() {
 			words := loadWords("base_de_donnée/italiano.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[32mit\033[0m"+"ali"+"\033[31man\033[0m words"
+			game_mode := "Game mode : \033[32mit\033[0m" + "ali" + "\033[31man\033[0m words"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -99,12 +99,12 @@ func menu() {
 			words := loadWords("base_de_donnée/espanol.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+" words"
+			game_mode := "Game mode : \033[31msp\033[0m" + "\033[33mani\033[0m" + "\033[31msh\033[0m" + " words"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -118,12 +118,12 @@ func menu() {
 			words := loadWords("base_de_donnée/portugais.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"
+			game_mode := "Game mode : \033[31mpor\033[0m" + "\033[32mtugu\033[0m" + "\033[31mese\033[0m"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -137,12 +137,12 @@ func menu() {
 			words := loadWords("base_de_donnée/allemand.txt")
 			word := randomWord(words)
 			display := displayWord(word)
-			game_mode := "Game mode : \033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"
+			game_mode := "Game mode : \033[30mge\033[0m" + "\033[31mrm\033[0m" + "\033[33man\033[0m"
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -157,11 +157,11 @@ func menu() {
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
 			game_mode := "Game mode : French citys"
-			fmt.Println(spaces, game_mode )
+			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -180,7 +180,7 @@ func menu() {
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -195,11 +195,11 @@ func menu() {
 			word := randomWord(words)
 			display := displayWord(word[:len(word)-1])
 			game_mode := "Game mode : Capitals"
-			fmt.Println(spaces,game_mode )
+			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
@@ -218,7 +218,7 @@ func menu() {
 			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 			for !wordFind(word, display) && life > 0 {
 				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter,game_mode)
+				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 			}
 			if life == 0 {
 				fmt.Print("\033[H\033[2J")
