@@ -18,7 +18,7 @@ func menu() {
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [1] : Language                            \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Loisirs                             \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Others                              \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Leave the game                      \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
 		fmt.Print(spaces, " Choose an option: ")
@@ -38,8 +38,8 @@ func menu() {
 				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"          \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman in "+"\033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"+"       \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman in "+"\033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"+"           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Leave the game                      \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Leave the game                      \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
 				fmt.Print(spaces, " Choose an option: ")
 
@@ -140,14 +140,14 @@ func menu() {
 						fmt.Print("\033[H\033[2J")
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
-				case "7":
+				case "8":
 					fmt.Print("\033[H\033[2J")
 					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
 					fmt.Println(string(content))
 					time.Sleep(3 * time.Second)
 					fmt.Print("\033[H\033[2J")
 					os.Exit(0)
-				case "8":
+				case "7":
 					fmt.Print("\033[H\033[2J")
 					finish = true
 					break
@@ -167,8 +167,8 @@ func menu() {
 				fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman with countrys       \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman with capitals       \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman with sports         \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Leave the game                      \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Leave the game                      \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
 				fmt.Print(spaces, " Choose an option: ")
 
@@ -239,14 +239,14 @@ func menu() {
 						fmt.Print("\033[H\033[2J")
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
-				case "5":
+				case "6":
 					fmt.Print("\033[H\033[2J")
 					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
 					fmt.Println(string(content))
 					time.Sleep(3 * time.Second)
 					fmt.Print("\033[H\033[2J")
 					os.Exit(0)
-				case "6":
+				case "5":
 					fmt.Print("\033[H\033[2J")
 					finish = true
 					break
