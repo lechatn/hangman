@@ -170,9 +170,10 @@ func menu() {		// Fonction d'affichage du menu de commandes
 				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman with capitals         \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman with sports           \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman with brands           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman with food             \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Back to menu                          \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Leave the game                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman with foods            \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Play to hangman with drinks           \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Back to menu                          \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [9] : Leave the game                        \033[35m|\033[0m")
 				fmt.Println(spaces, "\033[35m--------------------------------------------------\033[0m")
 				fmt.Print(spaces, " Choose an option: ")
 
@@ -273,14 +274,29 @@ func menu() {		// Fonction d'affichage du menu de commandes
 						fmt.Print("\033[H\033[2J")
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
-				case "8":
+				case "7":
+					words := loadWords("base_de_donnée/boissons.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : Drinks "
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "9":
 					fmt.Print("\033[H\033[2J")
 					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
 					fmt.Println(string(content))
 					time.Sleep(3 * time.Second)
 					fmt.Print("\033[H\033[2J")
 					os.Exit(0)
-				case "7":
+				case "8":
 					fmt.Print("\033[H\033[2J")
 					finish = true
 				default:
