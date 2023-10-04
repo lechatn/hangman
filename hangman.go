@@ -17,178 +17,245 @@ func menu() {
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [1] : Play to hangman in "+"\033[36mfr\033[0m"+"en"+"\033[31mch\033[0m"+"           \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman in "+"\033[31men\033[0m"+"gli"+"\033[34msh\033[0m"+"          \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"          \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"          \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman in "+"\033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"+"       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman in "+"\033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"+"           \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [7] : Play to hangman with french citys   \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [8] : Play to hangman with countrys       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [9] : Play to hangman with capitals       \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [10] : Play to hangman with sports        \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [11] : Leave the game                     \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [1] : Language                            \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Loisirs                             \033[35m|\033[0m")
+		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Leave the game                      \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
 		fmt.Print(spaces, " Choose an option: ")
-
 		option, _ := reader.ReadString('\n')
 		option = strings.TrimSpace(option)
 		fmt.Print("\033[H\033[2J")
-		life := 10
-		failed_letter := ""
-		indexHangman := 0
 		switch option {
 		case "1":
-			words := loadWords("base_de_donnée/words.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[36mfr\033[0m" + "en" + "\033[31mch\033[0m words"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
+			finish := false
+			for !finish {
+				fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
+				fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
+				fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [1] : Play to hangman in "+"\033[36mfr\033[0m"+"en"+"\033[31mch\033[0m"+"           \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman in "+"\033[31men\033[0m"+"gli"+"\033[34msh\033[0m"+"          \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"          \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"          \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman in "+"\033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"+"       \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman in "+"\033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"+"           \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Leave the game                      \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
+				fmt.Print(spaces, " Choose an option: ")
+
+				option, _ := reader.ReadString('\n')
+				option = strings.TrimSpace(option)
 				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
+				life := 10
+				failed_letter := ""
+				indexHangman := 0
+				switch option {
+				case "1":
+					words := loadWords("base_de_donnée/words.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[36mfr\033[0m" + "en" + "\033[31mch\033[0m words"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "2":
+					words := loadWords("base_de_donnée/english.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[31men\033[0m" + "gli" + "\033[34msh\033[0m words"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "3":
+					words := loadWords("base_de_donnée/italiano.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[32mit\033[0m" + "ali" + "\033[31man\033[0m words"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "4":
+					words := loadWords("base_de_donnée/espanol.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[31msp\033[0m" + "\033[33mani\033[0m" + "\033[31msh\033[0m" + " words"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "5":
+					words := loadWords("base_de_donnée/portugais.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[31mpor\033[0m" + "\033[32mtugu\033[0m" + "\033[31mese\033[0m"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "6":
+					words := loadWords("base_de_donnée/allemand.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : \033[30mge\033[0m" + "\033[31mrm\033[0m" + "\033[33man\033[0m"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "7":
+					fmt.Print("\033[H\033[2J")
+					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
+					fmt.Println(string(content))
+					time.Sleep(3 * time.Second)
+					fmt.Print("\033[H\033[2J")
+					os.Exit(0)
+				case "8":
+					fmt.Print("\033[H\033[2J")
+					finish = true
+					break
+				default:
+					fmt.Print("\033[H\033[2J")
+					fmt.Println(spaces, "Invalid option")
+				}
 			}
+
 		case "2":
-			words := loadWords("base_de_donnée/english.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[31men\033[0m" + "gli" + "\033[34msh\033[0m words"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
+			finish := false
+			for !finish {
+				fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
+				fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
+				fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [1] : Play to hangman with french citys   \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman with countrys       \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman with capitals       \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman with sports         \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Leave the game                      \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Back to menu                        \033[35m|\033[0m")
+				fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
+				fmt.Print(spaces, " Choose an option: ")
+
+				option, _ := reader.ReadString('\n')
+				option = strings.TrimSpace(option)
 				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
+				life := 10
+				failed_letter := ""
+				indexHangman := 0
+				switch option {
+				case "1":
+					words := loadWords("base_de_donnée/villes_france.txt")
+					word := randomWord(words)
+					display := displayWord(word[:len(word)-1])
+					game_mode := "Game mode : French citys"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "2":
+					words := loadWords("base_de_donnée/pays.txt")
+					word := randomWord(words)
+					display := displayWord(word[:len(word)-1])
+					game_mode := "Game mode : Countrys"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "3":
+					words := loadWords("base_de_donnée/capital.txt")
+					word := randomWord(words)
+					display := displayWord(word[:len(word)-1])
+					game_mode := "Game mode : Capitals"
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "4":
+					words := loadWords("base_de_donnée/sports.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : Sports "
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print("\033[H\033[2J")
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "5":
+					fmt.Print("\033[H\033[2J")
+					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
+					fmt.Println(string(content))
+					time.Sleep(3 * time.Second)
+					fmt.Print("\033[H\033[2J")
+					os.Exit(0)
+				case "6":
+					fmt.Print("\033[H\033[2J")
+					finish = true
+					break
+				default:
+					fmt.Print("\033[H\033[2J")
+					fmt.Println(spaces, "Invalid option")
+				}
 			}
 		case "3":
-			words := loadWords("base_de_donnée/italiano.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[32mit\033[0m" + "ali" + "\033[31man\033[0m words"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "4":
-			words := loadWords("base_de_donnée/espanol.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[31msp\033[0m" + "\033[33mani\033[0m" + "\033[31msh\033[0m" + " words"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "5":
-			words := loadWords("base_de_donnée/portugais.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[31mpor\033[0m" + "\033[32mtugu\033[0m" + "\033[31mese\033[0m"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "6":
-			words := loadWords("base_de_donnée/allemand.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : \033[30mge\033[0m" + "\033[31mrm\033[0m" + "\033[33man\033[0m"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "7":
-			words := loadWords("base_de_donnée/villes_france.txt")
-			word := randomWord(words)
-			display := displayWord(word[:len(word)-1])
-			game_mode := "Game mode : French citys"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "8":
-			words := loadWords("base_de_donnée/pays.txt")
-			word := randomWord(words)
-			display := displayWord(word[:len(word)-1])
-			game_mode := "Game mode : Countrys"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "9":
-			words := loadWords("base_de_donnée/capital.txt")
-			word := randomWord(words)
-			display := displayWord(word[:len(word)-1])
-			game_mode := "Game mode : Capitals"
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "10":
-			words := loadWords("base_de_donnée/sports.txt")
-			word := randomWord(words)
-			display := displayWord(word)
-			game_mode := "Game mode : Sports "
-			fmt.Println(spaces, game_mode)
-			fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-			for !wordFind(word, display) && life > 0 {
-				fmt.Println(spaces, display)
-				display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
-			}
-			if life == 0 {
-				fmt.Print("\033[H\033[2J")
-				fmt.Println(spaces, "You lose, the good words was : ", word)
-			}
-		case "11":
 			fmt.Print("\033[H\033[2J")
 			content, _ := ioutil.ReadFile("affichage/goodbye.txt")
 			fmt.Println(string(content))
@@ -198,10 +265,10 @@ func menu() {
 		default:
 			fmt.Print("\033[H\033[2J")
 			fmt.Println(spaces, "Invalid option")
+
 		}
 	}
 }
-
 func loadWords(fichier string) []string {
 	arrayOfWords := []string{}
 	inter := ""
