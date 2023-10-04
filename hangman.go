@@ -21,7 +21,7 @@ func menu() {
 		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Others                              \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Leave the game                      \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
-		fmt.Println(spaces,"Created by Guillaumr, Arthur and Noé")
+		fmt.Println(spaces,"\033[3mCreated by Guillaume, Arthur and Noé\033[0m")
 		fmt.Println()
 		fmt.Println()
 		fmt.Print(spaces, " Choose an option: ")
