@@ -150,7 +150,6 @@ func menu() {
 				case "7":
 					fmt.Print("\033[H\033[2J")
 					finish = true
-					break
 				default:
 					fmt.Print("\033[H\033[2J")
 					fmt.Println(spaces, "Invalid option")
@@ -249,7 +248,6 @@ func menu() {
 				case "5":
 					fmt.Print("\033[H\033[2J")
 					finish = true
-					break
 				default:
 					fmt.Print("\033[H\033[2J")
 					fmt.Println(spaces, "Invalid option")
