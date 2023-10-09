@@ -6,6 +6,7 @@ import ( // Import of the packages
 	"io/ioutil"
 	"math/rand"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -68,7 +69,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/words.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch" + reset_color + " words"
+					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -88,7 +89,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/english.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh" + reset_color + " words"
+					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -108,7 +109,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/italiano.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an" + reset_color + " words"
+					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -128,7 +129,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/espanol.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31msp" + reset_color + yellow + "ani" + reset_color + red + "sh" + reset_color + " words"
+					game_mode := "Game mode : \033[31msp" + reset_color + yellow + "ani" + reset_color + red + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -148,7 +149,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/portugais.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color
+					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -168,7 +169,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/allemand.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color
+					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -230,7 +231,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/villes_france.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : French citys"
+					game_mode := "Game mode : French citys" + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -250,7 +251,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/pays.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : Countrys"
+					game_mode := "Game mode : Countrys" + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -270,7 +271,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/capital.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : Capitals"
+					game_mode := "Game mode : Capitals" + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -290,7 +291,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/sports.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Sports "
+					game_mode := "Game mode : Sports " + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -310,7 +311,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/marque.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Brands "
+					game_mode := "Game mode : Brands " + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -330,7 +331,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/food.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Food "
+					game_mode := "Game mode : Food " + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -350,7 +351,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/boissons.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Drinks "
+					game_mode := "Game mode : Drinks " + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
@@ -370,7 +371,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/lol.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : League of legends "
+					game_mode := "Game mode : League of legends " + spaces + "score :" + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
