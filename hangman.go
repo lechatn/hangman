@@ -457,14 +457,17 @@ func randomWord(words []string) string { // Function who choose a random word in
 func displayWord(word string) string { // Function who create the game, we display some "_" and certaine letters of the word choosen
 	display := ""
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	letter_display := 0
 	for i := 0; i < len(word); i++ {
 		if !contains(alphabet, string(word[i])) {
 			display = display + string(word[i])
+			letter_display++
 			continue
 		}
 		display = display + "_"
 	}
-	for i := 0; i < (len(word))/2-1; i++ {
+	fmt.Print(letter_display)
+	for i := 0; i < (len(word))/2-1-letter_display; i++ {
 		randomNumber := rand.Intn(len(word) - 1)
 		for string(display[randomNumber]) != "_" {
 			randomNumber = rand.Intn(len(word) - 1)
