@@ -1,6 +1,6 @@
 package main
 
-import (		// Import of the packages
+import ( // Import of the packages
 	"bufio"
 	"fmt"
 	"io/ioutil"
@@ -10,10 +10,10 @@ import (		// Import of the packages
 	"time"
 )
 
-func menu() {		// Display of command menu
-	reader := bufio.NewReader(os.Stdin)		
+func menu() { // Display of command menu
+	reader := bufio.NewReader(os.Stdin)
 	spaces := strings.Repeat(" ", 50)
-	for {		//Define the principal menu
+	for { //Define the principal menu
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
@@ -21,7 +21,7 @@ func menu() {		// Display of command menu
 		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Others                              \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Leave the game                      \033[35m|\033[0m")
 		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
-		fmt.Println(spaces,"\033[3mCreated by Guillaume, Arthur and Noé\033[0m")
+		fmt.Println(spaces, "\033[3mCreated by Guillaume, Arthur and Noé\033[0m")
 		fmt.Println()
 		fmt.Println()
 		fmt.Print(spaces, " Choose an option: ")
