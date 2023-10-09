@@ -173,17 +173,18 @@ func menu() { // Display of command menu
 			for !finish { // Define the submenu "Others"
 				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
 				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
-				fmt.Println(spaces, magenta+"----------------------Others----------------------"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [1] : Play to hangman with french citys     "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [2] : Play to hangman with countrys         "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [3] : Play to hangman with capitals         "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [4] : Play to hangman with sports           "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [5] : Play to hangman with brands           "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [6] : Play to hangman with foods            "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [7] : Play to hangman with drinks           "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [8] : Back to menu                          "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [9] : Leave the game                        "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"--------------------------------------------------"+reset_color)
+				fmt.Println(spaces, magenta+"-----------------------Others-----------------------"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [1] : Play to hangman with french citys      "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [2] : Play to hangman with countrys          "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [3] : Play to hangman with capitals          "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [4] : Play to hangman with sports            "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [5] : Play to hangman with brands            "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [6] : Play to hangman with foods             "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [7] : Play to hangman with drinks            "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [8] : Play to hangman with league of legends "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [9] : Back to menu                           "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"|"+reset_color+"     [10] : Leave the game                        "+magenta+"|"+reset_color)
+				fmt.Println(spaces, magenta+"----------------------------------------------------"+reset_color)
 				fmt.Print(spaces, " Choose an option: ")
 
 				option, _ := reader.ReadString('\n')
@@ -298,14 +299,29 @@ func menu() { // Display of command menu
 						fmt.Print(clear)
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
-				case "9":
+				case "8":
+					words := loadWords("base_de_donnée/lol.txt")
+					word := randomWord(words)
+					display := displayWord(word)
+					game_mode := "Game mode : League of legends "
+					fmt.Println(spaces, game_mode)
+					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
+					for !wordFind(word, display) && life > 0 {
+						fmt.Println(spaces, display)
+						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
+					}
+					if life == 0 {
+						fmt.Print(clear)
+						fmt.Println(spaces, "You lose, the good words was : ", word)
+					}
+				case "10":
 					fmt.Print(clear)
 					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
 					fmt.Println(string(content))
 					time.Sleep(3 * time.Second)
 					fmt.Print(clear)
 					os.Exit(0)
-				case "8":
+				case "9":
 					fmt.Print(clear)
 					finish = true
 				default:
