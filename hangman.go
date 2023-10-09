@@ -25,6 +25,7 @@ func menu() { // Display of command menu
 	yellow := "\033[33m"
 	reset_color := "\033[0m"
 	score := 0
+	win_series := 1
 	for { //Define the principal menu
 		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
 		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
@@ -73,8 +74,9 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -83,7 +85,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "2":
@@ -94,8 +96,9 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -104,7 +107,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "3":
@@ -115,8 +118,9 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -125,7 +129,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "4":
@@ -136,8 +140,9 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -146,19 +151,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/portugais.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -167,19 +173,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/allemand.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -188,7 +195,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "8":
@@ -237,12 +244,13 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/villes_france.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : French citys" + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : French citys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -251,19 +259,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/pays.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : Countrys" + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Countrys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -272,19 +281,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/capital.txt")
 					word := randomWord(words)
 					display := displayWord(word[:len(word)-1])
-					game_mode := "Game mode : Capitals" + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Capitals" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -293,19 +303,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/sports.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Sports " + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Sports " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -314,19 +325,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/marque.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Brands " + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Brands " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -335,19 +347,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/food.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Food " + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Food " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -356,19 +369,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "7":
 					words := loadWords("base_de_donnée/boissons.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : Drinks " + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : Drinks " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -377,19 +391,20 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "8":
 					words := loadWords("base_de_donnée/lol.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : League of legends " + spaces + "score :" + strconv.Itoa(score)
+					game_mode := "Game mode : League of legends " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score)
+						find, score = wordFind(word, display, score,win_series)
 						if find {
+							win_series++
 							find = false
 							break
 						}
@@ -398,7 +413,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
-						score = 0
+						win_series = 1
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "10":
@@ -545,13 +560,13 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 }
 
-func wordFind(word string, display string, score int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
+func wordFind(word string, display string, score int,win_series int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
 	clear := "\033[H\033[2J"
 	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
-		score = score + len(display)
+		score = score + len(display)*win_series
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
 		fmt.Println(spaces, "You find the word: ", word)
