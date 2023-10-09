@@ -74,7 +74,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -96,7 +96,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -118,7 +118,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -140,7 +140,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -162,7 +162,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -184,7 +184,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -248,7 +248,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -270,7 +270,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -292,7 +292,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -314,7 +314,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -336,7 +336,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -358,7 +358,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -380,7 +380,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -402,7 +402,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score,win_series)
+						find, score = wordFind(word, display, score, win_series)
 						if find {
 							win_series++
 							find = false
@@ -560,7 +560,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 }
 
-func wordFind(word string, display string, score int,win_series int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
+func wordFind(word string, display string, score int, win_series int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
 	clear := "\033[H\033[2J"
 	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
