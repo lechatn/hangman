@@ -12,6 +12,7 @@ import ( // Import of the packages
 
 func menu() { // Display of command menu
 	reader := bufio.NewReader(os.Stdin)
+	var find bool
 	spaces := strings.Repeat(" ", 50)
 	clear := "\033[H\033[2J"
 	red := "\033[31m"
@@ -22,10 +23,11 @@ func menu() { // Display of command menu
 	green := "\033[32m"
 	yellow := "\033[33m"
 	reset_color := "\033[0m"
+	score := 0
 	for { //Define the principal menu
 		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
 		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
-		fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color)
+		fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color, spaces, "score : ", score)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [1] : Language                            "+magenta+"|", reset_color)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [2] : Others                              "+magenta+"|", reset_color)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [3] : Leave the game                      "+magenta+"|", reset_color)
@@ -43,7 +45,7 @@ func menu() { // Display of command menu
 			for !finish { // Define the submenu named "Language"
 				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
 				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
-				fmt.Println(spaces, magenta+"----------------------Language----------------------"+reset_color)
+				fmt.Println(spaces, magenta+"----------------------Language----------------------"+reset_color, spaces, "score : ", score)
 				fmt.Println(spaces, magenta+"|"+reset_color+"    [1] : Play to hangman in "+cyan+"fr"+reset_color+"en"+red+"ch"+reset_color+"               "+magenta+"|"+reset_color)
 				fmt.Println(spaces, magenta+"|"+reset_color+"    [2] : Play to hangman in "+red+"en"+reset_color+"gli"+blue+"sh"+reset_color+"              "+magenta+"|"+reset_color)
 				fmt.Println(spaces, magenta+"|"+reset_color+"    [3] : Play to hangman in "+green+"it"+reset_color+"ali"+red+"an"+reset_color+"              "+magenta+"|"+reset_color)
@@ -69,7 +71,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch" + reset_color + " words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -84,7 +91,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh" + reset_color + " words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -99,7 +111,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an" + reset_color + " words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -114,7 +131,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[31msp" + reset_color + yellow + "ani" + reset_color + red + "sh" + reset_color + " words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -129,7 +151,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -144,7 +171,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -173,7 +205,7 @@ func menu() { // Display of command menu
 			for !finish { // Define the submenu "Others"
 				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
 				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
-				fmt.Println(spaces, magenta+"-----------------------Others-----------------------"+reset_color)
+				fmt.Println(spaces, magenta+"-----------------------Others-----------------------"+reset_color, spaces, "score : ", score)
 				fmt.Println(spaces, magenta+"|"+reset_color+"     [1] : Play to hangman with french citys      "+magenta+"|"+reset_color)
 				fmt.Println(spaces, magenta+"|"+reset_color+"     [2] : Play to hangman with countrys          "+magenta+"|"+reset_color)
 				fmt.Println(spaces, magenta+"|"+reset_color+"     [3] : Play to hangman with capitals          "+magenta+"|"+reset_color)
@@ -201,7 +233,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : French citys"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -216,7 +253,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Countrys"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -231,7 +273,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Capitals"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -246,7 +293,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Sports "
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -261,7 +313,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Brands "
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -276,7 +333,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Food "
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -291,7 +353,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : Drinks "
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -306,7 +373,12 @@ func menu() { // Display of command menu
 					game_mode := "Game mode : League of legends "
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
-					for !wordFind(word, display) && life > 0 {
+					for !find && life > 0 {
+						find, score = wordFind(word, display, score)
+						if find {
+							find = false
+							break
+						}
 						fmt.Println(spaces, display)
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
@@ -455,20 +527,21 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 }
 
-func wordFind(word string, display string) bool { // Function who verify if the user have find the word and display the message of congrats
+func wordFind(word string, display string, score int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
 	clear := "\033[H\033[2J"
 	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
+		score = score + 10
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
 		fmt.Println(spaces, "You find the word: ", word)
 		time.Sleep(5 * time.Second)
 		fmt.Print(clear)
-		return true
+		return true, score
 	}
-	return false
+	return false, score
 }
 
 func contains(inter string, x string) bool { // Function who test if a string is present on another string
