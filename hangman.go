@@ -83,6 +83,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "2":
@@ -103,6 +104,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "3":
@@ -123,6 +125,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "4":
@@ -143,6 +146,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "5":
@@ -163,6 +167,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "6":
@@ -183,6 +188,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "8":
@@ -245,6 +251,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "2":
@@ -265,6 +272,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "3":
@@ -285,6 +293,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "4":
@@ -305,6 +314,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "5":
@@ -325,6 +335,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "6":
@@ -345,6 +356,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "7":
@@ -365,6 +377,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "8":
@@ -385,6 +398,7 @@ func menu() { // Display of command menu
 					}
 					if life == 0 {
 						fmt.Print(clear)
+						score = 0
 						fmt.Println(spaces, "You lose, the good words was : ", word)
 					}
 				case "10":
@@ -534,7 +548,7 @@ func wordFind(word string, display string, score int) (bool, int) { // Function 
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
-		score = score + 10
+		score = score + len(display)
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
 		fmt.Println(spaces, "You find the word: ", word)
