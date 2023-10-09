@@ -13,15 +13,22 @@ import ( // Import of the packages
 func menu() { // Display of command menu
 	reader := bufio.NewReader(os.Stdin)
 	spaces := strings.Repeat(" ", 50)
+	red := "\033[31m"
+	blue := "\033[34m"
+	black := "\033[30m"
+	magenta := "\033[35m"
+	cyan := "\033[36m"
+	green := "\033[32m"
+	reset_color := "\033[0m"
 	for { //Define the principal menu
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
-		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [1] : Language                            \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [2] : Others                              \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m|\033[0m    [3] : Leave the game                      \033[35m|\033[0m")
-		fmt.Println(spaces, "\033[35m------------------------------------------------\033[0m")
-		fmt.Println(spaces, "\033[3mCreated by Guillaume, Arthur and Noé\033[0m")
+		fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color)
+		fmt.Println(spaces, magenta, "|\033[0m    [1] : Language                            \033[35m|", reset_color)
+		fmt.Println(spaces, magenta, "|\033[0m    [2] : Others                              \033[35m|", reset_color)
+		fmt.Println(spaces, magenta, "|\033[0m    [3] : Leave the game                      \033[35m|", reset_color)
+		fmt.Println(spaces, magenta, "------------------------------------------------", reset_color)
+		fmt.Println(spaces, "\033[3mCreated by Guillaume, Arthur and Noé", reset_color)
 		fmt.Println()
 		fmt.Println()
 		fmt.Print(spaces, " Choose an option: ")
@@ -34,16 +41,16 @@ func menu() { // Display of command menu
 			for !finish { // Define the submenu named "Language"
 				fmt.Println(spaces, "                         \033[35m||\033[0m                       ")
 				fmt.Println(spaces, "                         \033[35m||\033[0m                       ")
-				fmt.Println(spaces, "\033[35m----------------------Language----------------------\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [1] : Play to hangman in "+"\033[36mfr\033[0m"+"en"+"\033[31mch\033[0m"+"               \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman in "+"\033[31men\033[0m"+"gli"+"\033[34msh\033[0m"+"              \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman in "+"\033[32mit\033[0m"+"ali"+"\033[31man\033[0m"+"              \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman in "+"\033[31msp\033[0m"+"\033[33mani\033[0m"+"\033[31msh\033[0m"+"              \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman in "+"\033[31mpor\033[0m"+"\033[32mtugu\033[0m"+"\033[31mese\033[0m"+"           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman in "+"\033[30mge\033[0m"+"\033[31mrm\033[0m"+"\033[33man\033[0m"+"               \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Back to menu                            \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Leave the game                          \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m----------------------------------------------------\033[0m")
+				fmt.Println(spaces, magenta+"----------------------Language----------------------"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [1] : Play to hangman in "+cyan+"fr"+reset_color+"en"+red+"ch"+reset_color+"               \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [2] : Play to hangman in "+red+"en"+reset_color+"gli"+blue+"sh"+reset_color+"              \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [3] : Play to hangman in "+green+"it"+reset_color+"ali"+red+"an"+reset_color+"              \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [4] : Play to hangman in "+red+"sp"+reset_color+"\033[33mani"+reset_color+red+"sh"+reset_color+"              \033[35m|", reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [5] : Play to hangman in "+red+"por"+reset_color+green+"tugu"+reset_color+red+"ese"+reset_color+"           \033[35m|", reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [6] : Play to hangman in "+black+"ge"+reset_color+red+"rm"+reset_color+"\033[33man"+reset_color+"               \033[35m|", reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [7] : Back to menu                            \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [8] : Leave the game                          \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"----------------------------------------------------"+reset_color)
 				fmt.Print(spaces, " Choose an option: ")
 
 				option, _ := reader.ReadString('\n')
@@ -57,7 +64,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/words.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[36mfr\033[0m" + "en" + "\033[31mch\033[0m words"
+					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch\033[0m words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -72,7 +79,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/english.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31men\033[0m" + "gli" + "\033[34msh\033[0m words"
+					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh\033[0m words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -87,7 +94,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/italiano.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[32mit\033[0m" + "ali" + "\033[31man\033[0m words"
+					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an\033[0m words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -102,7 +109,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/espanol.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31msp\033[0m" + "\033[33mani\033[0m" + "\033[31msh\033[0m" + " words"
+					game_mode := "Game mode : \033[31msp" + reset_color + "\033[33mani" + reset_color + red + "sh" + reset_color + " words"
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -117,7 +124,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/portugais.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[31mpor\033[0m" + "\033[32mtugu\033[0m" + "\033[31mese\033[0m"
+					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -132,7 +139,7 @@ func menu() { // Display of command menu
 					words := loadWords("base_de_donnée/allemand.txt")
 					word := randomWord(words)
 					display := displayWord(word)
-					game_mode := "Game mode : \033[30mge\033[0m" + "\033[31mrm\033[0m" + "\033[33man\033[0m"
+					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + "\033[33man" + reset_color
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !wordFind(word, display) && life > 0 {
@@ -164,17 +171,17 @@ func menu() { // Display of command menu
 			for !finish { // Define the submenu "Others"
 				fmt.Println(spaces, "                        \033[35m||\033[0m                        ")
 				fmt.Println(spaces, "                        \033[35m||\033[0m                        ")
-				fmt.Println(spaces, "\033[35m----------------------Others----------------------\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [1] : Play to hangman with french citys     \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [2] : Play to hangman with countrys         \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [3] : Play to hangman with capitals         \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [4] : Play to hangman with sports           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [5] : Play to hangman with brands           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [6] : Play to hangman with foods            \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [7] : Play to hangman with drinks           \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [8] : Back to menu                          \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m|\033[0m    [9] : Leave the game                        \033[35m|\033[0m")
-				fmt.Println(spaces, "\033[35m--------------------------------------------------\033[0m")
+				fmt.Println(spaces, magenta+"----------------------Others----------------------"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [1] : Play to hangman with french citys     \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [2] : Play to hangman with countrys         \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [3] : Play to hangman with capitals         \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [4] : Play to hangman with sports           \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [5] : Play to hangman with brands           \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [6] : Play to hangman with foods            \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [7] : Play to hangman with drinks           \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [8] : Back to menu                          \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"|\033[0m    [9] : Leave the game                        \033[35m|"+reset_color)
+				fmt.Println(spaces, magenta+"--------------------------------------------------"+reset_color)
 				fmt.Print(spaces, " Choose an option: ")
 
 				option, _ := reader.ReadString('\n')
