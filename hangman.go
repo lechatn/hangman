@@ -1,6 +1,6 @@
 package main
 
-import (		//On importe les packages nécessaires au bon fonctionnement du programme
+import (		// Import of the packages
 	"bufio"
 	"fmt"
 	"io/ioutil"
@@ -10,10 +10,10 @@ import (		//On importe les packages nécessaires au bon fonctionnement du progra
 	"time"
 )
 
-func menu() {		// Fonction d'affichage du menu de commandes
+func menu() {		// Display of command menu
 	reader := bufio.NewReader(os.Stdin)		
 	spaces := strings.Repeat(" ", 50)
-	for {		//Définition du menu principal
+	for {		//Define the principal menu
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "                       \033[35m||\033[0m                       ")
 		fmt.Println(spaces, "\033[35m----------------------Menu----------------------\033[0m")
@@ -31,7 +31,7 @@ func menu() {		// Fonction d'affichage du menu de commandes
 		switch option {
 		case "1":
 			finish := false
-			for !finish {
+			for !finish { // Define the submenu named "Language"
 				fmt.Println(spaces, "                         \033[35m||\033[0m                       ")
 				fmt.Println(spaces, "                         \033[35m||\033[0m                       ")
 				fmt.Println(spaces, "\033[35m----------------------Language----------------------\033[0m")
@@ -161,7 +161,7 @@ func menu() {		// Fonction d'affichage du menu de commandes
 
 		case "2":
 			finish := false
-			for !finish {
+			for !finish { // Define the submenu "Others"
 				fmt.Println(spaces, "                        \033[35m||\033[0m                        ")
 				fmt.Println(spaces, "                        \033[35m||\033[0m                        ")
 				fmt.Println(spaces, "\033[35m----------------------Others----------------------\033[0m")
@@ -318,7 +318,7 @@ func menu() {		// Fonction d'affichage du menu de commandes
 		}
 	}
 }
-func loadWords(fichier string) []string {
+func loadWords(fichier string) []string { // Define a fonction who create a aeeay of words with all the words of the database
 	arrayOfWords := []string{}
 	inter := ""
 	data, err := ioutil.ReadFile(fichier)
@@ -336,13 +336,13 @@ func loadWords(fichier string) []string {
 	return arrayOfWords
 }
 
-func randomWord(words []string) string {
+func randomWord(words []string) string { // Function who choose a random word in the array of words
 	rand.Seed(time.Now().UnixNano())
 	random := rand.Intn(len(words))
 	return words[random]
 }
 
-func displayWord(word string) string {
+func displayWord(word string) string { // Function who create the game, we display some "_" and certaine letters of the word choosen
 	display := ""
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	for i := 0; i < len(word); i++ {
@@ -361,7 +361,7 @@ func displayWord(word string) string {
 	}
 	return display
 }
-func askUser(display string, word string, life int, indexHangman int, failed_letter string, game_mode string) (string, int, int, string) {
+func askUser(display string, word string, life int, indexHangman int, failed_letter string, game_mode string) (string, int, int, string) { // Function who verify if there is an error when the user give him a letter
 	var input string
 	spaces := strings.Repeat(" ", 50)
 	fmt.Print(spaces, " Choose : ")
@@ -377,7 +377,7 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	return display, life, indexHangman, failed_letter
 }
 
-func isPresent(letter string, word string, display string, life int, indexHangman int, failed_letter string, game_mode string) (string, int, int, string) {
+func isPresent(letter string, word string, display string, life int, indexHangman int, failed_letter string, game_mode string) (string, int, int, string) { // Function who verify if the letter is present in the word
 	spaces := strings.Repeat(" ", 50)
 	isFind := false
 	for i, char := range word {
@@ -391,7 +391,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			isFind = true
 		}
 	}
-	if !isFind {
+	if !isFind { // if the letter is not in the word, we said this to the user and display the next part of José
 		if contains(failed_letter, letter) {
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Not present in the word", life, "attemps remaining")
@@ -418,7 +418,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			indexHangman = displayHangman(life, indexHangman)
 		}
 		return display, life, indexHangman, failed_letter
-	} else {
+	} else { // if the letter is in the word, we said this to the user and we display the present part of José
 		fmt.Println(spaces, game_mode)
 		fmt.Println(spaces, "Present in the word", life, "attemps remaining")
 		fmt.Println(spaces, "Right letters you have already tried: ", failed_letter)
@@ -429,7 +429,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 }
 
-func wordFind(word string, display string) bool {
+func wordFind(word string, display string) bool { // Function who verify if the user have find the word and display the message of congrats
 	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
@@ -444,7 +444,7 @@ func wordFind(word string, display string) bool {
 	return false
 }
 
-func contains(inter string, x string) bool {
+func contains(inter string, x string) bool { // Function who test if a string is present on another string
 	for i := 0; i < len(inter); i++ {
 		if x == string(inter[i]) {
 			return true
@@ -453,7 +453,7 @@ func contains(inter string, x string) bool {
 	return false
 }
 
-func displayHangman(life int, indexHangman int) int {
+func displayHangman(life int, indexHangman int) int { // Function who display a part of José
 	spaces := strings.Repeat(" ", 50)
 	file, err := ioutil.ReadFile("affichage/hangman.txt")
 	if err != nil {
