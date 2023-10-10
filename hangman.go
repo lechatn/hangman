@@ -508,7 +508,7 @@ func loadWords(fichier string) []string { // Define a fonction who create a aeea
 	if err != nil {
 		panic(err)
 	}
-	for _, char := range data {
+	for _, char := range data {	// We append all the words of the database in a variable
 		if char == '\n' {
 			arrayOfWords = append(arrayOfWords, inter)
 			inter = ""
@@ -520,7 +520,7 @@ func loadWords(fichier string) []string { // Define a fonction who create a aeea
 }
 
 func randomWord(words []string) string { // Function who choose a random word in the array of words
-	rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())	// We initialize a new seed based on the actual hour
 	random := rand.Intn(len(words))
 	return words[random]
 }
@@ -538,7 +538,7 @@ func displayWord(word string) string { // Function who create the game, we displ
 		display = display + "_"
 	}
 	fmt.Print(letter_display)
-	for i := 0; i < (len(word))/2-1-letter_display; i++ {
+	for i := 0; i < (len(word))/2-1-letter_display; i++ {	// At the beggining, we display len(word)/2-1 characters of the good word
 		randomNumber := rand.Intn(len(word) - 1)
 		for string(display[randomNumber]) != "_" {
 			randomNumber = rand.Intn(len(word) - 1)
@@ -554,7 +554,7 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	fmt.Print(spaces, " Choose : ")
 	fmt.Scanln(&input)
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
-	for len(input) > 1 || !contains(alphabet, input) {
+	for len(input) > 1 || !contains(alphabet, input) {	//	We display an error message if the user give us an invalid character
 		fmt.Println(spaces, "Invalid character")
 		fmt.Print(spaces, " Choose : ")
 		fmt.Scanln(&input)
@@ -583,7 +583,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Not present in the word", life, "attemps remaining")
 			fmt.Println(spaces, "You already tried this letter")
-			fmt.Println(spaces, "False letters you have already tried: ", failed_letter)
+			fmt.Println(spaces, "False letters you have already tried: ", failed_letter)	//	We remind to the user the false letters that he already tried
 			if life <= 10 {
 				indexHangman = displayHangman(life, indexHangman)
 			}
@@ -622,7 +622,7 @@ func wordFind(word string, display string, score int, win_series int) (bool, int
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
-		score = score + len(display)*win_series
+		score = score + len(display)*win_series	// We add to the score len(display)*number of win series
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
 		fmt.Println(spaces, "You find the word: ", word)
@@ -648,7 +648,7 @@ func displayHangman(life int, indexHangman int) int { // Function who display a 
 	if err != nil {
 		panic(err)
 	}
-	lines := strings.Split(string(file), "\n")
+	lines := strings.Split(string(file), "\n")	// We cut the file hangman.txt line by line
 	if life == 10 {
 		for i := 0; i < 7; i++ {
 			fmt.Println(spaces, lines[i])
@@ -661,7 +661,7 @@ func displayHangman(life int, indexHangman int) int { // Function who display a 
 	return indexHangman
 }
 
-func main() {
+func main() {	// We define the main function who launch the game
 	clear := "\033[H\033[2J"
 	fmt.Print(clear)
 	menu()
