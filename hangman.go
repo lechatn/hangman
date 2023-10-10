@@ -15,8 +15,8 @@ func menu() { // Display of command menu
 	reader := bufio.NewReader(os.Stdin)
 	var find bool
 	spaces := strings.Repeat(" ", 50)
-	clear := "\033[H\033[2J" 
-	red := "\033[31m"	// We define all the color we want to use
+	clear := "\033[H\033[2J"
+	red := "\033[31m" // We define all the color we want to use
 	blue := "\033[34m"
 	black := "\033[30m"
 	magenta := "\033[35m"
@@ -68,15 +68,15 @@ func menu() { // Display of command menu
 				switch option {
 				case "1":
 					words := loadWords("base_de_donnée/words.txt") // Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					word := randomWord(words)                      // Word choice for playing
+					display := displayWord(word)                   // Display of "_" and starting letters
 					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly	
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -84,25 +84,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "2":
-					words := loadWords("base_de_donnée/english.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/english.txt") // Reading of all the words in the database
+					word := randomWord(words)                        // Word choice for playing
+					display := displayWord(word)                     // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -110,25 +104,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "3":
-					words := loadWords("base_de_donnée/italiano.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/italiano.txt") // Reading of all the words in the database
+					word := randomWord(words)                         // Word choice for playing
+					display := displayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -136,25 +124,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "4":
-					words := loadWords("base_de_donnée/espanol.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/espanol.txt") // Reading of all the words in the database
+					word := randomWord(words)                        // Word choice for playing
+					display := displayWord(word)                     // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31msp" + reset_color + yellow + "ani" + reset_color + red + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -162,25 +144,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "5":
-					words := loadWords("base_de_donnée/portugais.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/portugais.txt") // Reading of all the words in the database
+					word := randomWord(words)                          // Word choice for playing
+					display := displayWord(word)                       // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -188,25 +164,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "6":
-					words := loadWords("base_de_donnée/allemand.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/allemand.txt") // Reading of all the words in the database
+					word := randomWord(words)                         // Word choice for playing
+					display := displayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -214,17 +184,11 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "8":
 					fmt.Print(clear)
-					content, _ := ioutil.ReadFile("affichage/goodbye.txt")	// Reading of all the words in the database
+					content, _ := ioutil.ReadFile("affichage/goodbye.txt") // Reading of all the words in the database
 					fmt.Println(string(content))
 					time.Sleep(3 * time.Second)
 					fmt.Print(clear)
@@ -265,8 +229,8 @@ func menu() { // Display of command menu
 				indexHangman := 0
 				switch option {
 				case "1":
-					words := loadWords("base_de_donnée/villes_france.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
+					words := loadWords("base_de_donnée/villes_france.txt") // Reading of all the words in the database
+					word := randomWord(words)                              // Word choice for playing
 					display := displayWord(word[:len(word)-1])
 					game_mode := "Game mode : French citys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
@@ -274,7 +238,7 @@ func menu() { // Display of command menu
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -282,17 +246,11 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "2":
-					words := loadWords("base_de_donnée/pays.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
+					words := loadWords("base_de_donnée/pays.txt") // Reading of all the words in the database
+					word := randomWord(words)                     // Word choice for playing
 					display := displayWord(word[:len(word)-1])
 					game_mode := "Game mode : Countrys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
@@ -300,7 +258,7 @@ func menu() { // Display of command menu
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -308,17 +266,11 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "3":
-					words := loadWords("base_de_donnée/capital.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
+					words := loadWords("base_de_donnée/capital.txt") // Reading of all the words in the database
+					word := randomWord(words)                        // Word choice for playing
 					display := displayWord(word[:len(word)-1])
 					game_mode := "Game mode : Capitals" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
@@ -326,7 +278,7 @@ func menu() { // Display of command menu
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -334,25 +286,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "4":
-					words := loadWords("base_de_donnée/sports.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/sports.txt") // Reading of all the words in the database
+					word := randomWord(words)                       // Word choice for playing
+					display := displayWord(word)                    // Display of "_" and starting letters
 					game_mode := "Game mode : Sports " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -360,25 +306,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "5":
-					words := loadWords("base_de_donnée/marque.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/marque.txt") // Reading of all the words in the database
+					word := randomWord(words)                       // Word choice for playing
+					display := displayWord(word)                    // Display of "_" and starting letters
 					game_mode := "Game mode : Brands " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -386,25 +326,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "6":
-					words := loadWords("base_de_donnée/food.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/food.txt") // Reading of all the words in the database
+					word := randomWord(words)                     // Word choice for playing
+					display := displayWord(word)                  // Display of "_" and starting letters
 					game_mode := "Game mode : Food " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -412,25 +346,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "7":
-					words := loadWords("base_de_donnée/boissons.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/boissons.txt") // Reading of all the words in the database
+					word := randomWord(words)                         // Word choice for playing
+					display := displayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : Drinks " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -438,25 +366,19 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "8":
-					words := loadWords("base_de_donnée/lol.txt")	// Reading of all the words in the database
-					word := randomWord(words)	// Word choice for playing
-					display := displayWord(word)	// Display of "_" and starting letters
+					words := loadWords("base_de_donnée/lol.txt") // Reading of all the words in the database
+					word := randomWord(words)                    // Word choice for playing
+					display := displayWord(word)                 // Display of "_" and starting letters
 					game_mode := "Game mode : League of legends " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
 						find, score = wordFind(word, display, score, win_series)
 						if find {
-							win_series++	// If the word is found, the number of winning series increases, and the score rises more quickly
+							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
 							break
 						}
@@ -464,13 +386,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						fmt.Print(clear)
-						win_series = 1	// If you lose, the win counter resets to 1 
-						content, _ := ioutil.ReadFile("affichage/loose.txt")
-						fmt.Println(spaces, string(content))
-						fmt.Println(spaces, "The good words was : ", word)
-						time.Sleep(3 * time.Second)
-						fmt.Print(clear)
+						win_series = Lose(win_series,clear,spaces,word)
 					}
 				case "10":
 					fmt.Print(clear)
@@ -508,7 +424,7 @@ func loadWords(fichier string) []string { // Define a fonction who create a aeea
 	if err != nil {
 		panic(err)
 	}
-	for _, char := range data {	// We append all the words of the database in a variable
+	for _, char := range data { // We append all the words of the database in a variable
 		if char == '\n' {
 			arrayOfWords = append(arrayOfWords, inter)
 			inter = ""
@@ -520,7 +436,7 @@ func loadWords(fichier string) []string { // Define a fonction who create a aeea
 }
 
 func randomWord(words []string) string { // Function who choose a random word in the array of words
-	rand.Seed(time.Now().UnixNano())	// We initialize a new seed based on the actual hour
+	rand.Seed(time.Now().UnixNano()) // We initialize a new seed based on the actual hour
 	random := rand.Intn(len(words))
 	return words[random]
 }
@@ -538,7 +454,7 @@ func displayWord(word string) string { // Function who create the game, we displ
 		display = display + "_"
 	}
 	fmt.Print(letter_display)
-	for i := 0; i < (len(word))/2-1-letter_display; i++ {	// At the beggining, we display len(word)/2-1 characters of the good word
+	for i := 0; i < (len(word))/2-1-letter_display; i++ { // At the beggining, we display len(word)/2-1 characters of the good word
 		randomNumber := rand.Intn(len(word) - 1)
 		for string(display[randomNumber]) != "_" {
 			randomNumber = rand.Intn(len(word) - 1)
@@ -554,7 +470,7 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	fmt.Print(spaces, " Choose : ")
 	fmt.Scanln(&input)
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
-	for len(input) > 1 || !contains(alphabet, input) {	//	We display an error message if the user give us an invalid character
+	for len(input) > 1 || !contains(alphabet, input) { //	We display an error message if the user give us an invalid character
 		fmt.Println(spaces, "Invalid character")
 		fmt.Print(spaces, " Choose : ")
 		fmt.Scanln(&input)
@@ -583,7 +499,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Not present in the word", life, "attemps remaining")
 			fmt.Println(spaces, "You already tried this letter")
-			fmt.Println(spaces, "False letters you have already tried: ", failed_letter)	//	We remind to the user the false letters that he already tried
+			fmt.Println(spaces, "False letters you have already tried: ", failed_letter) //	We remind to the user the false letters that he already tried
 			if life <= 10 {
 				indexHangman = displayHangman(life, indexHangman)
 			}
@@ -622,7 +538,7 @@ func wordFind(word string, display string, score int, win_series int) (bool, int
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
-		score = score + len(display)*win_series	// We add to the score len(display)*number of win series
+		score = score + len(display)*win_series // We add to the score len(display)*number of win series
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
 		fmt.Println(spaces, "You find the word: ", word)
@@ -648,7 +564,7 @@ func displayHangman(life int, indexHangman int) int { // Function who display a 
 	if err != nil {
 		panic(err)
 	}
-	lines := strings.Split(string(file), "\n")	// We cut the file hangman.txt line by line
+	lines := strings.Split(string(file), "\n") // We cut the file hangman.txt line by line
 	if life == 10 {
 		for i := 0; i < 7; i++ {
 			fmt.Println(spaces, lines[i])
@@ -661,7 +577,20 @@ func displayHangman(life int, indexHangman int) int { // Function who display a 
 	return indexHangman
 }
 
-func main() {	// We define the main function who launch the game
+func Lose(win_series int, clear string, spaces string, word string) int {
+	fmt.Print(clear)
+	if win_series != 1 {
+		win_series = 1 // If you lose, the win counter resets to 1
+	}
+	content, _ := ioutil.ReadFile("affichage/loose.txt")
+	fmt.Println(spaces, string(content))
+	fmt.Println(spaces, "The good words was : ", word)
+	time.Sleep(3 * time.Second)
+	fmt.Print(clear)
+	return win_series
+}
+
+func main() { // We define the main function who launch the game
 	clear := "\033[H\033[2J"
 	fmt.Print(clear)
 	menu()
