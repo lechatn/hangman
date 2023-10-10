@@ -86,7 +86,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/english.txt")
@@ -108,7 +112,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/italiano.txt")
@@ -130,7 +138,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/espanol.txt")
@@ -152,7 +164,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/portugais.txt")
@@ -174,7 +190,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/allemand.txt")
@@ -196,7 +216,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "8":
 					fmt.Print(clear)
@@ -260,7 +284,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/pays.txt")
@@ -282,7 +310,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/capital.txt")
@@ -304,7 +336,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/sports.txt")
@@ -326,7 +362,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/marque.txt")
@@ -348,7 +388,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/food.txt")
@@ -370,7 +414,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "7":
 					words := loadWords("base_de_donnée/boissons.txt")
@@ -392,7 +440,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "8":
 					words := loadWords("base_de_donnée/lol.txt")
@@ -414,7 +466,11 @@ func menu() { // Display of command menu
 					if life == 0 {
 						fmt.Print(clear)
 						win_series = 1
-						fmt.Println(spaces, "You lose, the good words was : ", word)
+						content, _ := ioutil.ReadFile("affichage/loose.txt")
+						fmt.Println(spaces, string(content))
+						fmt.Println(spaces, "The good words was : ", word)
+						time.Sleep(3 * time.Second)
+						fmt.Print(clear)
 					}
 				case "10":
 					fmt.Print(clear)
