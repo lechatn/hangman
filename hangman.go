@@ -27,8 +27,8 @@ func menu() { // Display of command menu
 	score := 0
 	win_series := 1
 	for { //Define the principal menu
-		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
-		fmt.Println(spaces, "                       "+magenta+"||"+reset_color+"                       ")
+		fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
+		fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
 		fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color, spaces, "score : ", score)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [1] : Language                            "+magenta+"|", reset_color)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [2] : Others                              "+magenta+"|", reset_color)
@@ -241,8 +241,8 @@ func menu() { // Display of command menu
 		case "2":
 			finish := false
 			for !finish { // Define the submenu "Others"
-				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
-				fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                        ")
+				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                        ")
+				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                        ")
 				fmt.Println(spaces, magenta+"-----------------------Others-----------------------"+reset_color, spaces, "score : ", score)
 				fmt.Println(spaces, magenta+"|"+reset_color+"     [1] : Play to hangman with french citys      "+magenta+"|"+reset_color)
 				fmt.Println(spaces, magenta+"|"+reset_color+"     [2] : Play to hangman with countrys          "+magenta+"|"+reset_color)
