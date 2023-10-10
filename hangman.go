@@ -74,7 +74,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -84,7 +84,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/english.txt") // Reading of all the words in the database
@@ -94,7 +94,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -104,7 +104,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/italiano.txt") // Reading of all the words in the database
@@ -114,7 +114,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -124,7 +124,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/espanol.txt") // Reading of all the words in the database
@@ -134,7 +134,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -144,7 +144,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/portugais.txt") // Reading of all the words in the database
@@ -154,7 +154,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -164,7 +164,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/allemand.txt") // Reading of all the words in the database
@@ -174,7 +174,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -184,7 +184,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "8":
 					fmt.Print(clear)
@@ -236,7 +236,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -246,7 +246,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/pays.txt") // Reading of all the words in the database
@@ -256,7 +256,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -266,7 +266,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/capital.txt") // Reading of all the words in the database
@@ -276,7 +276,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -286,7 +286,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/sports.txt") // Reading of all the words in the database
@@ -296,7 +296,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -306,7 +306,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/marque.txt") // Reading of all the words in the database
@@ -316,7 +316,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -326,7 +326,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/food.txt") // Reading of all the words in the database
@@ -336,7 +336,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -346,7 +346,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "7":
 					words := loadWords("base_de_donnée/boissons.txt") // Reading of all the words in the database
@@ -356,7 +356,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -366,7 +366,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "8":
 					words := loadWords("base_de_donnée/lol.txt") // Reading of all the words in the database
@@ -376,7 +376,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series,life)
+						find, score = wordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -386,7 +386,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series,clear,spaces,word)
+						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "10":
 					fmt.Print(clear)
@@ -532,13 +532,13 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 	}
 }
 
-func wordFind(word string, display string, score int, win_series int, life int ) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
+func wordFind(word string, display string, score int, win_series int, life int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
 	clear := "\033[H\033[2J"
 	spaces := strings.Repeat(" ", 50)
 	if !contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
-		life ++ 
+		life++
 		score = score + life/2*win_series // We add to the score life/2*number of series
 		content, _ := ioutil.ReadFile("affichage/congrats.txt")
 		fmt.Println(spaces, string(content))
