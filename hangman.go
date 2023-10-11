@@ -34,10 +34,10 @@ func menu() { // Display of command menu
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [2] : Others                              "+magenta+"|", reset_color)
 		fmt.Println(spaces, magenta, "|"+reset_color+"    [3] : Leave the game                      "+magenta+"|", reset_color)
 		fmt.Println(spaces, magenta, "------------------------------------------------", reset_color)
-		fmt.Println(spaces, "\033[3mCreated by Guillaume, Arthur and Noé", reset_color)
+		fmt.Println(spaces, "\033[3m Created by Guillaume, Arthur and Noé", reset_color)
 		fmt.Println()
 		fmt.Println()
-		fmt.Print(spaces, " Choose an option: ")
+		fmt.Print(spaces, "  Choose an option: ")
 		option, _ := reader.ReadString('\n')
 		option = strings.TrimSpace(option)
 		fmt.Print(clear)
@@ -187,12 +187,7 @@ func menu() { // Display of command menu
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "8":
-					fmt.Print(clear)
-					content, _ := ioutil.ReadFile("affichage/goodbye.txt") // Reading of all the words in the database
-					fmt.Println(string(content))
-					time.Sleep(3 * time.Second)
-					fmt.Print(clear)
-					os.Exit(0)
+					exit(clear)
 				case "7":
 					fmt.Print(clear)
 					finish = true
@@ -389,12 +384,7 @@ func menu() { // Display of command menu
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "10":
-					fmt.Print(clear)
-					content, _ := ioutil.ReadFile("affichage/goodbye.txt")
-					fmt.Println(string(content))
-					time.Sleep(3 * time.Second)
-					fmt.Print(clear)
-					os.Exit(0)
+					exit(clear)
 				case "9":
 					fmt.Print(clear)
 					finish = true
@@ -404,12 +394,7 @@ func menu() { // Display of command menu
 				}
 			}
 		case "3":
-			fmt.Print(clear)
-			content, _ := ioutil.ReadFile("affichage/goodbye.txt")
-			fmt.Println(string(content))
-			time.Sleep(3 * time.Second)
-			fmt.Print(clear)
-			os.Exit(0)
+			exit(clear)
 		default:
 			fmt.Print(clear)
 			fmt.Println(spaces, "Invalid option")
@@ -589,6 +574,15 @@ func Lose(win_series int, clear string, spaces string, word string) int {
 	time.Sleep(3 * time.Second)
 	fmt.Print(clear)
 	return win_series
+}
+
+func exit(clear string) {
+	fmt.Print(clear)
+	content, _ := ioutil.ReadFile("affichage/goodbye.txt")
+	fmt.Println(string(content))
+	time.Sleep(3 * time.Second)
+	fmt.Print(clear)
+	os.Exit(0)
 }
 
 func main() { // We define the main function who launch the game
