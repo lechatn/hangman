@@ -3,8 +3,8 @@ package hangman
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
 	"math/rand"
+	"strings"
 )
 
 func DisplayHangman(life int, indexHangman int) int { // Function who display a part of José
