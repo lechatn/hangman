@@ -70,7 +70,7 @@ func menu() { // Display of command menu
 				case "1":
 					words := loadWords("base_de_donnée/words.txt") // Reading of all the words in the database
 					word := randomWord(words)                      // Word choice for playing
-					display := displayWord(word)                   // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                   // Display of "_" and starting letters
 					game_mode := "Game mode : \033[36mfr" + reset_color + "en" + red + "ch" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -90,7 +90,7 @@ func menu() { // Display of command menu
 				case "2":
 					words := loadWords("base_de_donnée/english.txt") // Reading of all the words in the database
 					word := randomWord(words)                        // Word choice for playing
-					display := displayWord(word)                     // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                     // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31men" + reset_color + "gli" + blue + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -110,7 +110,7 @@ func menu() { // Display of command menu
 				case "3":
 					words := loadWords("base_de_donnée/italiano.txt") // Reading of all the words in the database
 					word := randomWord(words)                         // Word choice for playing
-					display := displayWord(word)                      // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : \033[32mit" + reset_color + "ali" + red + "an" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -130,7 +130,7 @@ func menu() { // Display of command menu
 				case "4":
 					words := loadWords("base_de_donnée/espanol.txt") // Reading of all the words in the database
 					word := randomWord(words)                        // Word choice for playing
-					display := displayWord(word)                     // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                     // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31msp" + reset_color + yellow + "ani" + reset_color + red + "sh" + reset_color + " words" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -150,7 +150,7 @@ func menu() { // Display of command menu
 				case "5":
 					words := loadWords("base_de_donnée/portugais.txt") // Reading of all the words in the database
 					word := randomWord(words)                          // Word choice for playing
-					display := displayWord(word)                       // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                       // Display of "_" and starting letters
 					game_mode := "Game mode : \033[31mpor" + reset_color + green + "tugu" + reset_color + red + "ese" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -170,7 +170,7 @@ func menu() { // Display of command menu
 				case "6":
 					words := loadWords("base_de_donnée/allemand.txt") // Reading of all the words in the database
 					word := randomWord(words)                         // Word choice for playing
-					display := displayWord(word)                      // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : \033[30mge" + reset_color + red + "rm" + reset_color + yellow + "an" + reset_color + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -227,7 +227,7 @@ func menu() { // Display of command menu
 				case "1":
 					words := loadWords("base_de_donnée/villes_france.txt") // Reading of all the words in the database
 					word := randomWord(words)                              // Word choice for playing
-					display := displayWord(word[:len(word)-1])
+					display := hangman.DisplayWord(word[:len(word)-1])
 					game_mode := "Game mode : French citys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -247,7 +247,7 @@ func menu() { // Display of command menu
 				case "2":
 					words := loadWords("base_de_donnée/pays.txt") // Reading of all the words in the database
 					word := randomWord(words)                     // Word choice for playing
-					display := displayWord(word[:len(word)-1])
+					display := hangman.DisplayWord(word[:len(word)-1])
 					game_mode := "Game mode : Countrys" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -267,7 +267,7 @@ func menu() { // Display of command menu
 				case "3":
 					words := loadWords("base_de_donnée/capital.txt") // Reading of all the words in the database
 					word := randomWord(words)                        // Word choice for playing
-					display := displayWord(word[:len(word)-1])
+					display := hangman.DisplayWord(word[:len(word)-1])
 					game_mode := "Game mode : Capitals" + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -287,7 +287,7 @@ func menu() { // Display of command menu
 				case "4":
 					words := loadWords("base_de_donnée/sports.txt") // Reading of all the words in the database
 					word := randomWord(words)                       // Word choice for playing
-					display := displayWord(word)                    // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                    // Display of "_" and starting letters
 					game_mode := "Game mode : Sports " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -307,7 +307,7 @@ func menu() { // Display of command menu
 				case "5":
 					words := loadWords("base_de_donnée/marque.txt") // Reading of all the words in the database
 					word := randomWord(words)                       // Word choice for playing
-					display := displayWord(word)                    // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                    // Display of "_" and starting letters
 					game_mode := "Game mode : Brands " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -327,7 +327,7 @@ func menu() { // Display of command menu
 				case "6":
 					words := loadWords("base_de_donnée/food.txt") // Reading of all the words in the database
 					word := randomWord(words)                     // Word choice for playing
-					display := displayWord(word)                  // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                  // Display of "_" and starting letters
 					game_mode := "Game mode : Food " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -347,7 +347,7 @@ func menu() { // Display of command menu
 				case "7":
 					words := loadWords("base_de_donnée/boissons.txt") // Reading of all the words in the database
 					word := randomWord(words)                         // Word choice for playing
-					display := displayWord(word)                      // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                      // Display of "_" and starting letters
 					game_mode := "Game mode : Drinks " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -367,7 +367,7 @@ func menu() { // Display of command menu
 				case "8":
 					words := loadWords("base_de_donnée/lol.txt") // Reading of all the words in the database
 					word := randomWord(words)                    // Word choice for playing
-					display := displayWord(word)                 // Display of "_" and starting letters
+					display := hangman.DisplayWord(word)                 // Display of "_" and starting letters
 					game_mode := "Game mode : League of legends " + spaces + "score : " + strconv.Itoa(score)
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
@@ -425,29 +425,6 @@ func randomWord(words []string) string { // Function who choose a random word in
 	rand.Seed(time.Now().UnixNano()) // We initialize a new seed based on the actual hour
 	random := rand.Intn(len(words))
 	return words[random]
-}
-
-func displayWord(word string) string { // Function who create the game, we display some "_" and certaine letters of the word choosen
-	display := ""
-	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	letter_display := 0
-	for i := 0; i < len(word); i++ {
-		if !hangman.Contains(alphabet, string(word[i])) {
-			display = display + string(word[i])
-			letter_display++
-			continue
-		}
-		display = display + "_"
-	}
-	fmt.Print(letter_display)
-	for i := 0; i < (len(word))/2-1-letter_display; i++ { // At the beggining, we display len(word)/2-1 characters of the good word
-		randomNumber := rand.Intn(len(word) - 1)
-		for string(display[randomNumber]) != "_" {
-			randomNumber = rand.Intn(len(word) - 1)
-		}
-		display = display[:randomNumber] + string(word[randomNumber]) + display[randomNumber+1:]
-	}
-	return display
 }
 
 func main() { // We define the main function who launch the game
