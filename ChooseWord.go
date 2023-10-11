@@ -1,8 +1,10 @@
 package hangman
 
-import ("io/ioutil"
-"math/rand"
-"time")
+import (
+	"io/ioutil"
+	"math/rand"
+	"time"
+)
 
 func LoadWords(fichier string) []string { // Define a fonction who create a aeeay of words with all the words of the database
 	arrayOfWords := []string{}
