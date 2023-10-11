@@ -487,7 +487,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			fmt.Println(spaces, "You already tried this letter")
 			fmt.Println(spaces, "False letters you have already tried: ", failed_letter) //	We remind to the user the false letters that he already tried
 			if life <= 10 {
-				indexHangman = displayHangman(life, indexHangman)
+				indexHangman = hangman.DisplayHangman(life, indexHangman)
 			}
 			return display, life, indexHangman, failed_letter
 		}
@@ -504,7 +504,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		fmt.Println(spaces, "False letters you have already tried: ", failed_letter)
 		if life < 10 {
 			indexHangman += 7
-			indexHangman = displayHangman(life, indexHangman)
+			indexHangman = hangman.DisplayHangman(life, indexHangman)
 		}
 		return display, life, indexHangman, failed_letter
 	} else { // if the letter is in the word, we said this to the user and we display the present part of José
@@ -512,7 +512,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		fmt.Println(spaces, "Present in the word", life, "attemps remaining")
 		fmt.Println(spaces, "Right letters you have already tried: ", failed_letter)
 		if life <= 10 {
-			indexHangman = displayHangman(life, indexHangman)
+			indexHangman = hangman.DisplayHangman(life, indexHangman)
 		}
 		return display, life, indexHangman, failed_letter
 	}
@@ -543,25 +543,6 @@ func contains(inter string, x string) bool { // Function who test if a string is
 		}
 	}
 	return false
-}
-
-func displayHangman(life int, indexHangman int) int { // Function who display a part of José
-	spaces := strings.Repeat(" ", 50)
-	file, err := ioutil.ReadFile("affichage/hangman.txt")
-	if err != nil {
-		panic(err)
-	}
-	lines := strings.Split(string(file), "\n") // We cut the file hangman.txt line by line
-	if life == 10 {
-		for i := 0; i < 7; i++ {
-			fmt.Println(spaces, lines[i])
-		}
-	} else {
-		for i := indexHangman; i < indexHangman+7; i++ {
-			fmt.Println(spaces, lines[i])
-		}
-	}
-	return indexHangman
 }
 
 func main() { // We define the main function who launch the game
