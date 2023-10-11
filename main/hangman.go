@@ -432,7 +432,7 @@ func displayWord(word string) string { // Function who create the game, we displ
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	letter_display := 0
 	for i := 0; i < len(word); i++ {
-		if !contains(alphabet, string(word[i])) {
+		if !hangman.Contains(alphabet, string(word[i])) {
 			display = display + string(word[i])
 			letter_display++
 			continue
@@ -456,7 +456,7 @@ func askUser(display string, word string, life int, indexHangman int, failed_let
 	fmt.Print(spaces, " Choose : ")
 	fmt.Scanln(&input)
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
-	for len(input) > 1 || !contains(alphabet, input) { //	We display an error message if the user give us an invalid character
+	for len(input) > 1 || !hangman.Contains(alphabet, input) { //	We display an error message if the user give us an invalid character
 		fmt.Println(spaces, "Invalid character")
 		fmt.Print(spaces, " Choose : ")
 		fmt.Scanln(&input)
@@ -481,7 +481,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		}
 	}
 	if !isFind { // if the letter is not in the word, we said this to the user and display the next part of José
-		if contains(failed_letter, letter) {
+		if hangman.Contains(failed_letter, letter) {
 			fmt.Println(spaces, game_mode)
 			fmt.Println(spaces, "Not present in the word", life, "attemps remaining")
 			fmt.Println(spaces, "You already tried this letter")
@@ -491,7 +491,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 			}
 			return display, life, indexHangman, failed_letter
 		}
-		if !contains(failed_letter, letter) {
+		if !hangman.Contains(failed_letter, letter) {
 			if failed_letter == "" {
 				failed_letter = failed_letter + letter
 			} else {
@@ -521,7 +521,7 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 func wordFind(word string, display string, score int, win_series int, life int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
 	clear := "\033[H\033[2J"
 	spaces := strings.Repeat(" ", 50)
-	if !contains(display, "_") {
+	if !hangman.Contains(display, "_") {
 		fmt.Println(spaces, display)
 		fmt.Print(clear)
 		life++
@@ -534,15 +534,6 @@ func wordFind(word string, display string, score int, win_series int, life int) 
 		return true, score
 	}
 	return false, score
-}
-
-func contains(inter string, x string) bool { // Function who test if a string is present on another string
-	for i := 0; i < len(inter); i++ {
-		if x == string(inter[i]) {
-			return true
-		}
-	}
-	return false
 }
 
 func main() { // We define the main function who launch the game
