@@ -75,7 +75,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -95,7 +95,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -115,7 +115,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -135,7 +135,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -155,7 +155,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -175,7 +175,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -232,7 +232,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -252,7 +252,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -272,7 +272,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -292,7 +292,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -312,7 +312,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -332,7 +332,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -352,7 +352,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -372,7 +372,7 @@ func menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = wordFind(word, display, score, win_series, life)
+						find, score = hangman.WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -516,24 +516,6 @@ func isPresent(letter string, word string, display string, life int, indexHangma
 		}
 		return display, life, indexHangman, failed_letter
 	}
-}
-
-func wordFind(word string, display string, score int, win_series int, life int) (bool, int) { // Function who verify if the user have find the word and display the message of congrats
-	clear := "\033[H\033[2J"
-	spaces := strings.Repeat(" ", 50)
-	if !hangman.Contains(display, "_") {
-		fmt.Println(spaces, display)
-		fmt.Print(clear)
-		life++
-		score = score + life/2*win_series // We add to the score life/2*number of series
-		content, _ := ioutil.ReadFile("affichage/congrats.txt")
-		fmt.Println(spaces, string(content))
-		fmt.Println(spaces, " You find the word: ", word)
-		time.Sleep(5 * time.Second)
-		fmt.Print(clear)
-		return true, score
-	}
-	return false, score
 }
 
 func main() { // We define the main function who launch the game
