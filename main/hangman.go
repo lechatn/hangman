@@ -85,7 +85,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/english.txt") // Reading of all the words in the database
@@ -105,7 +105,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/italiano.txt") // Reading of all the words in the database
@@ -125,7 +125,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/espanol.txt") // Reading of all the words in the database
@@ -145,7 +145,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/portugais.txt") // Reading of all the words in the database
@@ -165,7 +165,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/allemand.txt") // Reading of all the words in the database
@@ -185,7 +185,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "8":
 					hangman.Exit(clear)
@@ -242,7 +242,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "2":
 					words := loadWords("base_de_donnée/pays.txt") // Reading of all the words in the database
@@ -262,7 +262,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "3":
 					words := loadWords("base_de_donnée/capital.txt") // Reading of all the words in the database
@@ -282,7 +282,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "4":
 					words := loadWords("base_de_donnée/sports.txt") // Reading of all the words in the database
@@ -302,7 +302,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "5":
 					words := loadWords("base_de_donnée/marque.txt") // Reading of all the words in the database
@@ -322,7 +322,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "6":
 					words := loadWords("base_de_donnée/food.txt") // Reading of all the words in the database
@@ -342,7 +342,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "7":
 					words := loadWords("base_de_donnée/boissons.txt") // Reading of all the words in the database
@@ -362,7 +362,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "8":
 					words := loadWords("base_de_donnée/lol.txt") // Reading of all the words in the database
@@ -382,7 +382,7 @@ func menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = askUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
-						win_series = Lose(win_series, clear, spaces, word)
+						win_series = hangman.Lose(win_series, clear, spaces, word)
 					}
 				case "10":
 					hangman.Exit(clear)
@@ -562,19 +562,6 @@ func displayHangman(life int, indexHangman int) int { // Function who display a 
 		}
 	}
 	return indexHangman
-}
-
-func Lose(win_series int, clear string, spaces string, word string) int {
-	fmt.Print(clear)
-	if win_series != 1 {
-		win_series = 1 // If you lose, the win counter resets to 1
-	}
-	content, _ := ioutil.ReadFile("affichage/loose.txt")
-	fmt.Println(spaces, string(content))
-	fmt.Println(spaces, "The good words was : ", word)
-	time.Sleep(3 * time.Second)
-	fmt.Print(clear)
-	return win_series
 }
 
 func main() { // We define the main function who launch the game
