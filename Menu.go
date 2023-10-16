@@ -6,6 +6,7 @@ import ( // Import of the packages
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func Menu() { // Display of command menu
@@ -82,6 +83,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "2":
@@ -102,6 +104,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "3":
@@ -122,6 +125,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "4":
@@ -142,6 +146,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "5":
@@ -162,6 +167,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "6":
@@ -182,6 +188,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "8":
@@ -239,6 +246,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "2":
@@ -259,6 +267,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "3":
@@ -279,6 +288,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "4":
@@ -299,6 +309,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "5":
@@ -319,6 +330,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "6":
@@ -339,6 +351,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "7":
@@ -359,6 +372,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "8":
@@ -379,6 +393,7 @@ func Menu() { // Display of command menu
 						display, life, indexHangman, failed_letter = AskUser(display, word, life, indexHangman, failed_letter, game_mode)
 					}
 					if life == 0 {
+						time.Sleep(1 * time.Second)
 						win_series = Lose(win_series, clear, spaces, word)
 					}
 				case "10":
