@@ -38,7 +38,6 @@ func DisplayWord(word string) string { // Function who create the game, we displ
 		}
 		display = display + "_"
 	}
-	fmt.Print(letter_display)
 	for i := 0; i < (len(word))/2-1-letter_display; i++ { // At the beggining, we display len(word)/2-1 characters of the good word
 		randomNumber := rand.Intn(len(word) - 1)
 		for string(display[randomNumber]) != "_" {
