@@ -24,43 +24,43 @@ func Menu() { // Display of command menu
 	reset_color := "\033[0m"
 	score := 0
 	win_series := 1
-	for { //Define the principal menu
-		fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
-		fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
-		fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color, spaces, "score : ", score)
-		fmt.Println(green, "██╗"+reset_color+"░░░░░"+green+"███████╗████████╗██╗"+reset_color+"░"+green+"██████╗            ", reset_color, magenta, "|"+reset_color+"    [1] : Language                            "+magenta+"|", green, "              ██████╗"+reset_color+"░"+green+"██╗"+reset_color+"░░░░░░"+green+"█████╗"+reset_color+"░"+green+"██╗"+reset_color+"░░░"+green+"██╗")
-		fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"██╔════╝╚══██╔══╝╚█║██╔════╝            ", reset_color, magenta, "|"+reset_color+"    [2] : Others                              "+magenta+"|", green, "              ██╔══██╗██║"+reset_color+"░░░░░"+green+"██╔══██╗╚██╗"+reset_color+"░"+green+"██╔╝")
-		fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"█████╗"+reset_color+"░░░░░"+green+"██║"+reset_color+"░░░░"+green+"╚╝╚█████╗"+reset_color+"░            ", reset_color, magenta, "|"+reset_color+"    [3] : Leave the game                      "+magenta+"|", green, "              ██████╔╝██║"+reset_color+"░░░░░"+green+"███████║"+reset_color+"░"+green+"╚████╔╝"+reset_color+"░")
-		fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"██╔══╝"+reset_color+"░░░░░"+green+"██║"+reset_color+"░░░░░░░"+green+"╚═══██╗"+reset_color+"            ", reset_color, magenta, "------------------------------------------------", green, "              ██╔═══╝"+reset_color+"░"+green+"██║"+reset_color+"░░░░░"+green+"██╔══██║"+reset_color+"░░"+green+"╚██╔╝"+reset_color+"░░", reset_color)
-		fmt.Println(green, "███████╗███████╗"+reset_color+"░░░"+green+"██║"+reset_color+"░░░░░░"+green+"██████╔╝"+reset_color+"            ", reset_color, "\033[3m Created by Guillaume, Arthur and Noé", green, "                          ██║"+reset_color+"░░░░░"+green+"███████╗██║"+reset_color+"░░"+green+"██║"+reset_color+"░░░"+green+"██║"+reset_color+"░░░", reset_color)
-		fmt.Println(green, "╚══════╝╚══════╝"+reset_color+"░░░"+green+"╚═╝"+reset_color+"░░░░░░"+green+"╚═════╝"+reset_color+"░                                                                             ", green, "╚═╝"+reset_color+"░░░░░"+green+"╚══════╝╚═╝"+reset_color+"░░"+green+"╚═╝"+reset_color+"░░░"+green+"╚═╝"+reset_color+"░░░", reset_color)
-		fmt.Println()
-		fmt.Println()
-		fmt.Print(spaces, "  Choose an option: ")
-		option, _ := reader.ReadString('\n')
-		option = strings.TrimSpace(option)
-		fmt.Print(clear)
-		switch option {
-		case "1":
-			finish := false
-			for !finish { // Define the submenu named "Language"
-				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
-				fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
-				fmt.Println(spaces, magenta+"----------------------Language----------------------"+reset_color, spaces, "score : ", score)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [1] : Play to hangman in "+cyan+"fr"+reset_color+"en"+red+"ch"+reset_color+"               "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [2] : Play to hangman in "+red+"en"+reset_color+"gli"+blue+"sh"+reset_color+"              "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [3] : Play to hangman in "+green+"it"+reset_color+"ali"+red+"an"+reset_color+"              "+magenta+"|"+reset_color)
-				fmt.Println("         █░░ ▄▀█ █▄░█ █▀▀ █░█ ▄▀█ █▀▀ █▀▀         ", magenta+"|"+reset_color+"    [4] : Play to hangman in "+red+"sp"+reset_color+yellow+"ani"+reset_color+red+"sh"+reset_color+"              "+magenta+"|", reset_color+"         █░░ ▄▀█ █▄░█ █▀▀ █░█ ▄▀█ █▀▀ █▀▀")
-				fmt.Println("         █▄▄ █▀█ █░▀█ █▄█ █▄█ █▀█ █▄█ ██▄         ", magenta+"|"+reset_color+"    [5] : Play to hangman in "+red+"por"+reset_color+green+"tugu"+reset_color+red+"ese"+reset_color+"           "+magenta+"|", reset_color+"         █▄▄ █▀█ █░▀█ █▄█ █▄█ █▀█ █▄█ ██▄")
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [6] : Play to hangman in "+black+"ge"+reset_color+red+"rm"+reset_color+yellow+"an"+reset_color+"               "+magenta+"|", reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [7] : Back to menu                            "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"|"+reset_color+"    [8] : Leave the game                          "+magenta+"|"+reset_color)
-				fmt.Println(spaces, magenta+"----------------------------------------------------"+reset_color)
-				fmt.Print(spaces, " Choose an option: ")
+		for { //Define the principal menu
+			fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
+			fmt.Println(spaces, "                        "+magenta+"||"+reset_color+"                       ")
+			fmt.Println(spaces, magenta, "----------------------Menu----------------------", reset_color, spaces, "score : ", score)
+			fmt.Println(green, "██╗"+reset_color+"░░░░░"+green+"███████╗████████╗██╗"+reset_color+"░"+green+"██████╗            ", reset_color, magenta, "|"+reset_color+"    [1] : Language                            "+magenta+"|", green, "              ██████╗"+reset_color+"░"+green+"██╗"+reset_color+"░░░░░░"+green+"█████╗"+reset_color+"░"+green+"██╗"+reset_color+"░░░"+green+"██╗")
+			fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"██╔════╝╚══██╔══╝╚█║██╔════╝            ", reset_color, magenta, "|"+reset_color+"    [2] : Others                              "+magenta+"|", green, "              ██╔══██╗██║"+reset_color+"░░░░░"+green+"██╔══██╗╚██╗"+reset_color+"░"+green+"██╔╝")
+			fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"█████╗"+reset_color+"░░░░░"+green+"██║"+reset_color+"░░░░"+green+"╚╝╚█████╗"+reset_color+"░            ", reset_color, magenta, "|"+reset_color+"    [3] : Leave the game                      "+magenta+"|", green, "              ██████╔╝██║"+reset_color+"░░░░░"+green+"███████║"+reset_color+"░"+green+"╚████╔╝"+reset_color+"░")
+			fmt.Println(green, "██║"+reset_color+"░░░░░"+green+"██╔══╝"+reset_color+"░░░░░"+green+"██║"+reset_color+"░░░░░░░"+green+"╚═══██╗"+reset_color+"            ", reset_color, magenta, "------------------------------------------------", green, "              ██╔═══╝"+reset_color+"░"+green+"██║"+reset_color+"░░░░░"+green+"██╔══██║"+reset_color+"░░"+green+"╚██╔╝"+reset_color+"░░", reset_color)
+			fmt.Println(green, "███████╗███████╗"+reset_color+"░░░"+green+"██║"+reset_color+"░░░░░░"+green+"██████╔╝"+reset_color+"            ", reset_color, "\033[3m Created by Guillaume, Arthur and Noé", green, "                          ██║"+reset_color+"░░░░░"+green+"███████╗██║"+reset_color+"░░"+green+"██║"+reset_color+"░░░"+green+"██║"+reset_color+"░░░", reset_color)
+			fmt.Println(green, "╚══════╝╚══════╝"+reset_color+"░░░"+green+"╚═╝"+reset_color+"░░░░░░"+green+"╚═════╝"+reset_color+"░                                                                             ", green, "╚═╝"+reset_color+"░░░░░"+green+"╚══════╝╚═╝"+reset_color+"░░"+green+"╚═╝"+reset_color+"░░░"+green+"╚═╝"+reset_color+"░░░", reset_color)
+			fmt.Println()
+			fmt.Println()
+			fmt.Print(spaces, "  Choose an option: ")
+			option, _ := reader.ReadString('\n')
+			option = strings.TrimSpace(option)
+			fmt.Print(clear)
+			switch option {
+			case "1":
+				finish := false
+				for !finish { // Define the submenu named "Language"
+					fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
+					fmt.Println(spaces, "                         "+magenta+"||"+reset_color+"                       ")
+					fmt.Println(spaces, magenta+"----------------------Language----------------------"+reset_color, spaces, "score : ", score)
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [1] : Play to hangman in "+cyan+"fr"+reset_color+"en"+red+"ch"+reset_color+"               "+magenta+"|"+reset_color)
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [2] : Play to hangman in "+red+"en"+reset_color+"gli"+blue+"sh"+reset_color+"              "+magenta+"|"+reset_color)
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [3] : Play to hangman in "+green+"it"+reset_color+"ali"+red+"an"+reset_color+"              "+magenta+"|"+reset_color)
+					fmt.Println("         █░░ ▄▀█ █▄░█ █▀▀ █░█ ▄▀█ █▀▀ █▀▀         ", magenta+"|"+reset_color+"    [4] : Play to hangman in "+red+"sp"+reset_color+yellow+"ani"+reset_color+red+"sh"+reset_color+"              "+magenta+"|", reset_color+"         █░░ ▄▀█ █▄░█ █▀▀ █░█ ▄▀█ █▀▀ █▀▀")
+					fmt.Println("         █▄▄ █▀█ █░▀█ █▄█ █▄█ █▀█ █▄█ ██▄         ", magenta+"|"+reset_color+"    [5] : Play to hangman in "+red+"por"+reset_color+green+"tugu"+reset_color+red+"ese"+reset_color+"           "+magenta+"|", reset_color+"         █▄▄ █▀█ █░▀█ █▄█ █▄█ █▀█ █▄█ ██▄")
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [6] : Play to hangman in "+black+"ge"+reset_color+red+"rm"+reset_color+yellow+"an"+reset_color+"               "+magenta+"|", reset_color)
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [7] : Back to menu                            "+magenta+"|"+reset_color)
+					fmt.Println(spaces, magenta+"|"+reset_color+"    [8] : Leave the game                          "+magenta+"|"+reset_color)
+					fmt.Println(spaces, magenta+"----------------------------------------------------"+reset_color)
+					fmt.Print(spaces, " Choose an option: ")
 
-				option, _ := reader.ReadString('\n')
-				option = strings.TrimSpace(option)
-				fmt.Print(clear)
+					option, _ := reader.ReadString('\n')
+					option = strings.TrimSpace(option)
+					fmt.Print(clear)
 				life := 10
 				failed_letter := ""
 				indexHangman := 0
