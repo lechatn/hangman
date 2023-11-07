@@ -1,4 +1,4 @@
-package github.com/lechatn/hangman
+package hangman
 
 import (
 	"io/ioutil"

@@ -1,3 +1,3 @@
-module github.com/lechatn/hangman
+module hangman
 
 go 1.13
