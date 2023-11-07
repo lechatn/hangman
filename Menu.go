@@ -1,4 +1,4 @@
-package hangman
+package github.com/lechatn/hangman
 
 import ( // Import of the packages
 	"bufio"

@@ -1,4 +1,4 @@
-package hangman
+package github.com/lechatn/hangman
 
 import (
 	"fmt"
