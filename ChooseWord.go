@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func LoadWords(fichier string) []string { // Define a fonction who create a aeeay of words with all the words of the database
+func LoadWords(fichier string) []string { // Define a fonction who create a array of words with all the words of the database
 	arrayOfWords := []string{}
 	inter := ""
 	data, err := ioutil.ReadFile(fichier)
