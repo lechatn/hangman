@@ -13,8 +13,6 @@ func AskUser(display string, word string, life int, indexHangman int, failed_let
 	fmt.Scanln(&input)
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvuwxyz"
 	for len(input) > 1 || !Contains(alphabet, input) { //	We display an error message if the user give us an invalid character
-		fmt.Println(spaces, "Invalid character")
-		fmt.Print(spaces, " Choose : ")
 		fmt.Scanln(&input)
 	}
 	fmt.Print(clear)
