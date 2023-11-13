@@ -18,6 +18,6 @@ func AskUser(display string, word string, life int, indexHangman int, failed_let
 		fmt.Scanln(&input)
 	}
 	fmt.Print(clear)
-	display, life, indexHangman, failed_letter = IsPresent(strings.ToUpper(input), word, display, life, indexHangman, failed_letter, game_mode)
+	display, life, indexHangman, failed_letter = IsPresent(strings.ToUpper(input), word, display, life, indexHangman, failed_letter)
 	return display, life, indexHangman, failed_letter
 }
