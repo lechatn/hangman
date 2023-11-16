@@ -73,7 +73,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -94,7 +94,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -115,7 +115,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -136,7 +136,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -157,7 +157,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -178,7 +178,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -236,7 +236,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -257,7 +257,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -278,7 +278,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -299,7 +299,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -320,7 +320,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -341,7 +341,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -362,7 +362,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
@@ -383,7 +383,7 @@ func Menu() { // Display of command menu
 					fmt.Println(spaces, game_mode)
 					fmt.Println(spaces, "Good Luck, you have 10 attemps.")
 					for !find && life > 0 {
-						find, score = WordFind(word, display, score, win_series, life)
+						score = WordFind(word, display, score, win_series, life)
 						if find {
 							win_series++ // If the word is found, the number of winning series increases, and the score rises more quickly
 							find = false
